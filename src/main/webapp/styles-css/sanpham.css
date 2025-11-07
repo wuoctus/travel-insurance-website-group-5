@@ -10,6 +10,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto",sans-serif;
+    line-height: 1.9;
 }
 body{
     justify-content: center;
@@ -20,19 +21,6 @@ body{
     margin: 0 auto;
     padding: 0 20px;
     background-color: var(--color-background);
-}
-.gioithieu{
-    background-color: var(--color-background);
-    justify-content: left;
-    max-width: 500px;
-}
-.gioithieu h1{
-    color: var(--color-text-dark);
-    
-}
-.gioithieu p{
-    color: var(--color-text-light);
-    
 }
 .Noidung-Chung{
     max-width: 700px;
@@ -61,7 +49,7 @@ body{
 .GoiBaoHiem-Loai{
     position: relative;
     width: 300px;
-    height: 420px;
+    height: 520px;
     background-color: var(--color-background);
     margin: 20px;
     border-radius: 20px;
@@ -71,7 +59,7 @@ body{
 }
 .GoiBaoHiem-Loai .Ten-LoaiBaoHiem{
     position: relative;
-    height: 47%;
+    height: 38%;
     width: 100%;
     background-color: #000; 
     clip-path: circle(180px at center 0px);
@@ -91,9 +79,15 @@ body{
     padding-top: 0%;
     justify-content: center;  
 }
+.NoiDung-Goi {
+    padding: 0 28px;
+    list-style: none;
+}
 .GoiBaoHiem-Loai .Ten-LoaiBaoHiem .Noidung-Goi li{
     color: var(--color-text-light);
     text-align: center;
+    margin-bottom: 10px; 
+
     
 }
 .GoiBaoHiem-Loai .ChucNang-Goi{
