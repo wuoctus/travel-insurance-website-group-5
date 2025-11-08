@@ -1,0 +1,126 @@
+/* ========== HEADER ========== */
+.header {
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 15px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo img {
+    height: 60px;
+    width: auto;
+}
+
+/* Menu */
+.header-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header-nav ul li {
+    margin: 0 25px;
+}
+
+.header-nav ul li a {
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 700;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+.header-nav ul li a:hover {
+    color: #e50000;
+}
+
+/* Nút mua ngay */
+.header-buy {
+    background-color: #e50000;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 35px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header-buy:hover {
+    background-color: #ff1a1a;
+}
+/* Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #1b1b3a;
+    background-color: #fff;
+}
+
+/* Banner */
+.banner {
+    background: url('../image/lienhe.png') no-repeat center/cover;
+    height: 400px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+
+.banner-title {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 10px 25px;
+    margin-left: 80px;
+    margin-bottom: 40px;
+    border-left: 5px solid #FFD600;
+    display: inline-block;
+}
+
+.banner-title h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Phần nội dung liên hệ */
+.contact-container {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.contact-container h2 {
+    font-size: 26px;
+    color: #1b1b3a;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+.contact-container .line {
+    width: 80px;
+    height: 3px;
+    background-color: #FFD600;
+    margin: 10px auto 15px auto;
+}
+
+.contact-container p {
+    font-size: 16px;
+    color: #333;
+}
