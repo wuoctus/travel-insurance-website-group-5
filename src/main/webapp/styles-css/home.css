@@ -384,6 +384,7 @@ section h1 {
     color: var(--color-text-dark);
     font-size: 20px;
     padding-top: 30px;
+    font-size: 36px;
 }
 
 .Noidung-Chung p {
@@ -448,15 +449,16 @@ section h1 {
 .GoiBaoHiem-Loai .ChucNang-Goi {
     position: absolute;
     bottom: 8%;
-    justify-content: center;
     text-align: center;
-    padding-left: 38px;
-
+    width: 300px;
+    margin: 0 auto;
 }
 
 .GoiBaoHiem-Loai .ChucNang-Goi .btn-buy {
     position: relative;
+    font-size: 19px;
     padding: 9px;
+    
     border-radius: 20px;
     text-decoration: none;
     color: var(--color-background);

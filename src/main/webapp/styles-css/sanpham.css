@@ -50,7 +50,7 @@ body{
 .GoiBaoHiem-Loai{
     position: relative;
     width: 300px;
-    height: 520px;
+    height: 530px;
     background-color: var(--color-background);
     margin: 20px;
     border-radius: 20px;
@@ -92,16 +92,19 @@ body{
     
 }
 .GoiBaoHiem-Loai .ChucNang-Goi{
+    display: flex;
     position: absolute;
     bottom: 8%;;
-    justify-content: center;
     text-align: center;
-    padding-left: 38px;
+    padding: 0 auto;
 
 }
 .GoiBaoHiem-Loai .ChucNang-Goi .btn-buy{
+    display:  inline-block;
+    font-size: 19px;
     position: relative;
     padding: 9px;
+    justify-content: center;
     border-radius: 20px;
     text-decoration: none;
     color: var(--color-background);
