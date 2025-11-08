@@ -1,19 +1,22 @@
-body{
+body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
+    background-color: #f2f2f2;
+
 }
 
 /*css for header*/
-.header{
-    background-color: white;
+.header {
+    background-color: #f2f2f2;
     padding: 15px 0;
     position: sticky;
     top: 0;
-    height: 60px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    height: 40px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     z-index: 100;
 }
-.container{
+
+.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,52 +25,59 @@ body{
     padding: 0 50px;
 }
 
-.header-logo img{
-    height: 60px;
+.header-logo img {
+    height: 40px;
     width: auto;
 }
-.header-nav{
+
+.header-nav {
     flex: 1;
     display: flex;
     justify-content: center;
 }
-.menu{
+
+.menu {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
 }
-.sub-menu{
+
+.sub-menu {
     margin: 0 20px;
 }
-.sub-menu a{
+
+.sub-menu a {
     text-decoration: none;
     font-size: 18px;
     font-weight: 600;
     color: #696969;
     transition: color 0.3s ease;
 }
-.sub-menu a:hover{
+
+.sub-menu a:hover {
     color: black;
 }
-.header-buy{
+
+.header-buy {
     background-color: #e50000;
     color: #fff;
     border: none;
     border-radius: 45px;
-    padding: 12px 30px;
+    padding: 10px 30px;
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    height: 50px;
-}
-.header-buy:hover{
-    background-color: #f44336;
+    height: 40px;
 }
 
-.page2{
-    height: 1500px;
+.header-buy:hover {
+    background-color: #f44336;
+}
+/*Scroll*/
+#home, #benefits, #products{
+    scroll-margin-top: 70px;
 }
 
 /*css for home*/
@@ -75,14 +85,14 @@ body{
     background-image: url('../image/backgroundHome.png');
     background-size: cover;
     background-position: center;
-    height: 873px;
+    height: 895px;
     color: black;
     display: flex;
     align-items: center;
     margin: 0 auto;
 }
 
-.container-home  {
+.container-home {
     width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -93,13 +103,13 @@ body{
     transform: translateY(-20px);
 }
 
-.home-title h3{
+.home-title h3 {
     font-size: 50px;
     font-weight: normal;
 }
 
-.home-title h1{
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+.home-title h1 {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
     font-weight: bold;
     font-size: 120px;
     color: #040402;
@@ -107,61 +117,66 @@ body{
     transform: translateY(-80px);
 }
 
-.home-title p{
+.home-title p {
     transform: translateY(-150px);
     font-size: 20px;
     text-decoration: underline;
     text-underline-offset: 10px;
 }
 
-.home-introduce{
+.home-introduce {
     transform: translateY(-15px);
     max-width: 1200px;
     margin: 0 auto;
     padding: 2px 20px;
     border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.6);
     text-align: justify;
     line-height: 1.7;
 }
 
-.home-introduce p{
+.home-introduce p {
     font-size: 20px;
     color: #2a2e47;
     margin-bottom: 20px;
 }
-.home-introduce p strong{
+
+.home-introduce p strong {
     color: #b30909;
 }
 
 /*css for home-sub*/
-.home-sub{
-    background-color: #f8f9fa;
+.home-sub {
+    background-color: #f2f2f2;
     padding: 60px 0;
 }
 
-.container-home-sub{
+.container-home-sub {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     gap: 60px;
     padding: 0 20px;
+
 }
 
-.criteria-box{
-    background-color: #ace8db;
+.criteria-box {
+    background-color: white;
     border-radius: 15px;
     padding: 30px 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 3px ridge #9eefc9;
+
 }
+
 .criteria-box:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
 }
 
-.criteria-box h2{
+.criteria-box h2 {
     text-align: center;
     font-size: 24px;
     margin-bottom: 15px;
@@ -169,21 +184,297 @@ body{
     color: black;
 }
 
-.criteria-box p{
+.criteria-box p {
     text-align: center;
     font-size: 16px;
     margin-bottom: 15px;
 }
 
-.criteria-box ul{
+.criteria-box ul {
     list-style-type: disc;
     padding-left: 30px;
 }
 
-.criteria-box ul li{
+.criteria-box ul li {
     font-size: 16px;
     margin-bottom: 8px;
     line-height: 1.5;
+}
+
+section {
+    padding: 50px 30px;
+    min-height: 100vh;
+}
+
+section h1 {
+    text-align: center;
+    font-size: 36px;
+    padding-bottom: 25px;
+}
+
+.benefits {
+    background-color: #f2f2f2;
+}
+
+/* ==========================
+   BẢNG QUYỀN LỢI BẢO HIỂM
+   ========================== */
+.insurance-table-wrapper {
+    background-color: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    border: 3px ridge #9eefc9;
+}
+
+.insurance-table-wrapper h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.insurance-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 16px;
+}
+
+.insurance-table th,
+.insurance-table td {
+    border: 1px solid #e0e0e0;
+    padding: 14px 18px;
+    vertical-align: top;
+}
+
+.insurance-table thead th {
+    background-color: #ff000a;
+    color: #000;
+    font-weight: 700;
+    text-align: center;
+}
+
+.left-header {
+    text-align: left;
+}
+
+.section-header td {
+    background-color: #f2f2f2;
+    font-weight: 700;
+}
+
+.sub-header td {
+    background-color: #f5f5f5;
+    font-weight: 600;
+}
+
+.insurance-table small {
+    color: rgba(16, 16, 16, 0.61);
+    font-size: 14px;
+    display: block;
+    margin-top: 3px;
+}
+
+.insurance-table tbody tr:nth-child(even):not(.section-header):not(.sub-header) {
+    background-color: #fafafa;
+}
+
+/* ==========================
+   BẢNG QUYỀN LỢI BẢO HIỂM DU LỊCH GIA ĐÌNH
+   ========================== */
+.insurance-table-wrapper-family {
+    background-color: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.insurance-table-wrapper-family h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* bảng chính */
+.insurance-table-family {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 16px;
+}
+
+.insurance-table-family th,
+.insurance-table-family td {
+    border: 1px solid #e0e0e0;
+    padding: 14px 18px;
+    vertical-align: top;
+}
+
+/* tiêu đề đỏ */
+.insurance-table-family thead th {
+    background-color: #ff0000; /* đỏ tươi */
+    color: white;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* căn trái cho cột đầu */
+.insurance-table-family .left-header {
+    text-align: left;
+}
+
+/* header phụ */
+.insurance-table-family .section-header td {
+    background-color: #f2f2f2;
+    font-weight: 700;
+}
+
+.insurance-table-family .sub-header td {
+    background-color: #f5f5f5;
+    font-weight: 600;
+}
+
+/* chú thích nhỏ */
+.insurance-table-family small {
+    color: rgba(16, 16, 16, 0.61);
+    font-size: 14px;
+    display: block;
+    margin-top: 3px;
+}
+
+/* hàng xen kẽ */
+.insurance-table-family tbody tr:nth-child(even):not(.section-header):not(.sub-header) {
+    background-color: #fafafa;
+}
+
+/*Css cho trang cac goi san pham*/
+.Baohiem {
+    --color-primary: #312e81; /* Xanh tím đậm (Header thẻ) */
+    --color-button: #e53935; /* Đỏ sáng (Nút, Checkmark) */
+    --color-text-dark: #1C0761;
+    --color-text-light: #555;
+    --color-background: #f8f8f8;
+}
+
+.Baohiem * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    line-height: 1.9;
+}
+
+.container-product {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: var(--color-background);
+}
+
+.Noidung-Chung {
+    max-width: 700px;
+    color: #e53935;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.Noidung-Chung h1 {
+    color: var(--color-text-dark);
+    font-size: 20px;
+    padding-top: 30px;
+}
+
+.Noidung-Chung p {
+    color: var(--color-text-light);
+}
+
+.GoiBaoHiem {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.GoiBaoHiem-Loai {
+    position: relative;
+    width: 300px;
+    height: 520px;
+    background-color: var(--color-background);
+    margin: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+}
+
+.GoiBaoHiem-Loai .Ten-LoaiBaoHiem {
+    position: relative;
+    height: 38%;
+    width: 100%;
+    background-color: #000;
+    clip-path: circle(180px at center 0px);
+    text-align: center;
+}
+
+.GoiBaoHiem-Loai .Ten-LoaiBaoHiem h2 {
+    color: rgba(226, 226, 226);
+    font-size: 25px;
+    padding: 30px 0;
+}
+
+.GoiBaoHiem-Loai .Ten-LoaiBaoHiem .Noidung-Goi {
+    position: absolute;
+    bottom: 40px;
+    padding: 20px;
+    text-align: center;
+    padding-top: 0%;
+    justify-content: center;
+}
+
+.NoiDung-Goi {
+    padding: 0 28px;
+    list-style: none;
+}
+
+.GoiBaoHiem-Loai .Ten-LoaiBaoHiem .Noidung-Goi li {
+    color: var(--color-text-light);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.GoiBaoHiem-Loai .ChucNang-Goi {
+    position: absolute;
+    bottom: 8%;
+    justify-content: center;
+    text-align: center;
+    padding-left: 38px;
+
+}
+
+.GoiBaoHiem-Loai .ChucNang-Goi .btn-buy {
+    position: relative;
+    padding: 9px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--color-background);
+}
+
+.GoiBaoHiem .GoiBaoHiem-Loai:nth-child(1) .Ten-LoaiBaoHiem,
+.GoiBaoHiem .GoiBaoHiem-Loai:nth-child(1) .ChucNang-Goi a {
+    background: #D09705;
+}
+
+.GoiBaoHiem .GoiBaoHiem-Loai:nth-child(2) .Ten-LoaiBaoHiem,
+.GoiBaoHiem .GoiBaoHiem-Loai:nth-child(2) .ChucNang-Goi a {
+    background: #1b1464;
+}
+
+.GoiBaoHiem .GoiBaoHiem-Loai:nth-child(3) .Ten-LoaiBaoHiem,
+.GoiBaoHiem .GoiBaoHiem-Loai:nth-child(3) .ChucNang-Goi a {
+    background: #ed4c67;
 }
 
 

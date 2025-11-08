@@ -14,9 +14,10 @@
 }
 body{
     justify-content: center;
-    background-attachment: fixed;
 }
 .container{
+    justify-content: center;
+    background-attachment: fixed;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
