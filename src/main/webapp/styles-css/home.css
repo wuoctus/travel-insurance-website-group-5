@@ -479,6 +479,68 @@ section h1 {
     background: #ed4c67;
 }
 
+/*Câu hỏi thường gặp*/
+.questions{
+    padding: 150px 0;
+    font-family: Montserrat, sans-serif;
+}
+
+.container-questions{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    border: 3px ridge #9eefc9;
+    border-radius: 45px;
+}
+
+.questions-title h2{
+    font-size: 36px;
+    font-weight: 600;
+    color: #111;
+    margin-top: 20px;
+    margin-right: 150px;
+}
+
+.questions-list{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.questions-list details{
+    padding: 15px 0;
+}
+
+.questions-list summary{
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+    padding-right: 20px;
+    user-select: none;
+    display: block;
+    border-bottom: 1px solid #a6a6a6;
+
+}
+
+.questions-list details p{
+    padding: 10px 0 5px 20px;
+    margin-top: 5px;
+    line-height: 1.6;
+}
+
+.questions-list details strong{
+    font-weight: 700;
+}
+
+.questions-list details summary:hover{
+    color: red;
+}
+
+.questions-list details[open] summary{
+    font-size: 24px;
+    color: red;
+}
+
 
 
 
