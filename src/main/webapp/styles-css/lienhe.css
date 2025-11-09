@@ -62,65 +62,134 @@
 .header-buy:hover {
     background-color: #ff1a1a;
 }
-/* Reset */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    color: #1b1b3a;
-    background-color: #fff;
-}
-
-/* Banner */
-.banner {
-    background: url('../image/lienhe.png') no-repeat center/cover;
-    height: 400px;
-    position: relative;
+/* ========== FORM LIÊN HỆ ========== */
+.contact-section {
+    background-color: #f4f6ff;
+    padding: 80px 0;
     display: flex;
-    align-items: flex-end;
+    justify-content: center;
 }
 
-.banner-title {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 10px 25px;
-    margin-left: 80px;
-    margin-bottom: 40px;
-    border-left: 5px solid #FFD600;
-    display: inline-block;
+.contact-wrapper {
+    background: #f9faff;
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    padding: 50px 60px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-.banner-title h1 {
-    font-size: 28px;
-    font-weight: bold;
+.contact-text {
+    flex: 2;
 }
 
-/* Phần nội dung liên hệ */
-.contact-container {
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.contact-container h2 {
+.contact-text h2 {
     font-size: 26px;
-    color: #1b1b3a;
-    font-weight: bold;
-    position: relative;
-    display: inline-block;
+    font-weight: 700;
+    color: #001a70;
+    margin-bottom: 25px;
+    line-height: 1.4;
 }
 
-.contact-container .line {
-    width: 80px;
-    height: 3px;
-    background-color: #FFD600;
-    margin: 10px auto 15px auto;
+.info-box p {
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
-.contact-container p {
+.hotline {
+    color: #001a70;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* FORM */
+/* Form chiếm 1 phần */
+.contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input {
+    width: 100%;
+    padding: 14px 20px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus {
+    border-color: #001a70;
+    box-shadow: 0 0 6px rgba(0, 26, 112, 0.2);
+}
+
+.contact-form button {
+    width: 115%;
+    text-align: center;
+    align-self: flex-start;
+    background-color: #001a70;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 35px;
     font-size: 16px;
-    color: #333;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+.contact-form button:hover {
+    background-color: #0028a3;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contact-wrapper {
+        flex-direction: column;
+        padding: 40px 30px;
+        gap: 40px;
+    }
+}.contact-section {
+     width: 100%;
+     min-height: 100vh; /* full chiều cao màn hình */
+     background: url("../image/lienhe.png") no-repeat center center;
+     background-size: cover; /* làm ảnh luôn full */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     position: relative;
+     padding: 0; /* bỏ padding để ảnh không bị lệch */
+ }
+
+/* Thêm lớp mờ nhẹ nếu cần tăng độ đọc chữ */
+.contact-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.55); /* muốn rõ hơn giảm xuống: 0.35 → nhìn rõ hình hơn */
+    z-index: 1;
+}
+
+.contact-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 85%;
+    display: flex;
+    align-items: center;   /* Căn đều theo chiều dọc */
+    justify-content: space-between;
+    gap: 40px;
+    background: #ffffffcc;
+    padding: 50px 60px;
+    border-radius: 20px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+
