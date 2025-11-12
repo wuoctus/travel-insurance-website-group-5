@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảo hiểm du lịch - Travel Insurance</title>
+    <link rel="stylesheet" href="../styles-css/Login.css">
+</head>
+<body>
+<div class="login-container">
+
+    <!-- Radio ẩn để chuyển form -->
+    <input type="radio" name="formToggle" id="showLogin" checked hidden>
+    <input type="radio" name="formToggle" id="showRegister" hidden>
+    <input type="radio" name="formToggle" id="showForgot" hidden>
+
+    <!-- Form đăng nhập -->
+    <form id="loginForm" class="form">
+        <!-- ✅ Logo travel insurance -->
+        <img src="../image/travel-insurance.png" alt="Travel Insurance Logo" class="logo-insurance">
+
+        <h2>BẢO HIỂM DU LỊCH</h2>
+        <p>Travel Insurance - Secure Your Journey</p>
+
+        <input type="text" placeholder="Tên đăng nhập" required>
+        <input type="password" placeholder="Mật khẩu" required>
+        <button type="submit">Đăng nhập</button>
+
+        <div class="options">
+            <label for="showForgot" class="link-style">Quên mật khẩu?</label>
+            <label for="showRegister" class="link-style">Đăng ký</label>
+        </div>
+    </form>
+
+    <!-- Form đăng ký -->
+    <form id="registerForm" class="form">
+        <h2>ĐĂNG KÝ</h2>
+        <input type="text" placeholder="Tên đăng nhập" required>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="Số điện thoại" required>
+        <input type="password" placeholder="Mật khẩu" required>
+        <input type="password" placeholder="Nhập lại mật khẩu" required>
+        <button type="submit">Đăng ký</button>
+
+        <div class="options">
+            <label for="showLogin" class="link-style">Quay lại đăng nhập</label>
+        </div>
+    </form>
+
+    <!-- Form quên mật khẩu -->
+    <form id="forgotForm" class="form">
+        <h2>QUÊN MẬT KHẨU</h2>
+
+        <!-- Radio điều khiển từng bước -->
+        <input type="radio" name="step" id="step1" checked hidden>
+        <input type="radio" name="step" id="step2" hidden>
+        <input type="radio" name="step" id="step3" hidden>
+
+        <!-- Bước 1: Nhập email/SĐT -->
+        <div class="step-box step1">
+            <p>Nhập thông tin để khôi phục mật khẩu:</p>
+            <input type="text" placeholder="Nhập email hoặc SĐT" required>
+            <label for="step2">
+                <button type="button" onclick="document.getElementById('step2').checked = true;">
+                    Tiếp tục
+                </button>
+            </label>
+        </div>
+
+        <!-- Bước 2: Nhập mã xác nhận -->
+        <div class="step-box step2">
+            <p>Nhập mã xác nhận đã được gửi đến bạn:</p>
+            <input type="text" placeholder="Nhập mã xác nhận" required>
+            <label for="step3">
+                <button type="button" onclick="document.getElementById('step3').checked = true;">
+                    Xác nhận mã
+                </button>
+            </label>
+        </div>
+
+        <!-- Bước 3: Đặt lại mật khẩu -->
+        <div class="step-box step3">
+            <p>Đặt lại mật khẩu mới:</p>
+            <input type="password" placeholder="Mật khẩu mới" required>
+            <input type="password" placeholder="Nhập lại mật khẩu" required>
+            <button type="submit">Đặt lại mật khẩu</button>
+        </div>
+
+        <div class="options">
+            <label for="showLogin" class="link-style" onclick="document.getElementById('step1').checked = true;">Quay lại đăng nhập</label>
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>
