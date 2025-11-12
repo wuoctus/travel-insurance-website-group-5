@@ -10,9 +10,15 @@
 <!-- Header hiển thị ở cố định đầu trang -->
 <header class="header">
     <div class="container">
-        <div class="header-logo">
-            <img src="../image/logo.png" alt="">
-        </div>
+        <a href="#home" class="logo-link">
+            <div class="header-logo">
+                <img src="../image/travel-insurance.png" alt="">
+                <div class="logo-text-wrapper">
+                    <h1>Travel</h1>
+                    <h1>Insurance</h1>
+                </div>
+            </div>
+        </a>
         <nav class="header-nav">
             <ul class="menu">
                 <li class="sub-menu">
@@ -28,7 +34,7 @@
                     <a href="#questions">Câu hỏi thường gặp</a>
                 </li>
                 <li class="sub-menu">
-                    <a href="">Liên hệ</a>
+                    <a href="#contact-section">Liên hệ</a>
                 </li>
             </ul>
         </nav>
@@ -829,133 +835,138 @@
 </section>
 
 <!--Trang các gói sản phẩm-->
-<div class="container-product" id="products">
-    <div class="Baohiem">
-        <div class="Noidung-Chung">
-            <h1>Bảo hiểm Du lịch cho Cá nhân</h1>
-            <p>
-                Giúp bảo vệ bạn trong suốt chuyến đi, bao gồm chi phí y tế, mất hành lý, hoãn hoặc hủy chuyến, và các
-                rủi ro bất ngờ khác. Sản phẩm mang lại sự an tâm để bạn tận hưởng hành trình trọn vẹn, dù là du lịch
-                trong nước hay quốc tế.
-            </p>
+<div class="products" id="products">
+    <div class="container-product">
+        <div class="Baohiem">
+            <div class="Noidung-Chung">
+                <h1>Bảo hiểm Du lịch cho Cá nhân</h1>
+                <p>
+                    Giúp bảo vệ bạn trong suốt chuyến đi, bao gồm chi phí y tế, mất hành lý, hoãn hoặc hủy chuyến, và
+                    các
+                    rủi ro bất ngờ khác. Sản phẩm mang lại sự an tâm để bạn tận hưởng hành trình trọn vẹn, dù là du lịch
+                    trong nước hay quốc tế.
+                </p>
+            </div>
+
+            <div class="GoiBaoHiem">
+                <div class="GoiBaoHiem-Loai">
+                    <div class="Ten-LoaiBaoHiem">
+                        <h2>Cơ Bản</h2>
+                    </div>
+                    <ul class="NoiDung-Goi">
+                        <li><span class="checkmark">✓ </span>Chi phí y tế</li>
+                        <li><span class="checkmark">✓ </span>Bồi thường mất hành lý, giấy tờ, tài sản</li>
+                        <li><span class="checkmark">✓ </span>Hỗ trợ khi hoãn hoặc hủy chuyến</li>
+                        <li><span class="checkmark">✓ </span>Bảo vệ trong nước và quốc tế</li>
+                        <li><span class="checkmark">✓ </span>Dịch vụ hỗ trợ khẩn cấp 24/7</li>
+                    </ul>
+                    <div class="ChucNang-Goi">
+                        <a href="" class="btn-buy">Mua ngay 105.000VND</a>
+                    </div>
+                </div>
+
+                <div class="GoiBaoHiem-Loai">
+                    <div class="Ten-LoaiBaoHiem">
+                        <h2>Nâng Cao</h2>
+                    </div>
+                    <ul class="NoiDung-Goi">
+                        <li><span class="checkmark">✓ </span>Chi phí y tế</li>
+                        <li><span class="checkmark">✓ </span>Bảo hiểm tai nạn</li>
+                        <li><span class="checkmark">✓ </span>Bảo hiểm tài sản, hành lí...</li>
+                        <li><span class="checkmark">✓ </span>Bồi thường trách nhiệm cá nhân</li>
+                        <li><span class="checkmark">✓ </span>Bảo vệ trong nước và quốc tế</li>
+                        <li><span class="checkmark">✓ </span>Hỗ trợ khẩn cấp toàn cầu 24/7</li>
+                    </ul>
+                    <div class="ChucNang-Goi">
+                        <a href="" class="btn-buy">Mua ngay 168.000VND</a>
+
+                    </div>
+                </div>
+
+                <div class="GoiBaoHiem-Loai">
+                    <div class="Ten-LoaiBaoHiem">
+                        <h2>Cao Cấp</h2>
+                    </div>
+                    <ul class="NoiDung-Goi">
+                        <li><span class="checkmark">✓ </span>Hạn mức chi trả cao nhất</li>
+                        <li><span class="checkmark">✓ </span>Hỗ trợ y tế, hồi hương khẩn cấp</li>
+                        <li><span class="checkmark">✓ </span>Bồi thường trách nhiệm cá nhân</li>
+                        <li><span class="checkmark">✓ </span>Bảo hiểm trễ hành lí</li>
+                        <li><span class="checkmark">✓ </span>Bảo hiểm rủi ro du lịch</li>
+                        <li><span class="checkmark">✓ </span>Dịch vụ hỗ trợ ưu tiên 24/7</li>
+                    </ul>
+                    <div class="ChucNang-Goi">
+                        <a href="" class="btn-buy">Mua ngay 217.000VND</a>
+
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="GoiBaoHiem">
-            <div class="GoiBaoHiem-Loai">
-                <div class="Ten-LoaiBaoHiem">
-                    <h2>Cơ Bản</h2>
-                </div>
-                <ul class="NoiDung-Goi">
-                    <li><span class="checkmark">✓ </span>Chi phí y tế</li>
-                    <li><span class="checkmark">✓ </span>Bồi thường mất hành lý, giấy tờ, tài sản</li>
-                    <li><span class="checkmark">✓ </span>Hỗ trợ khi hoãn hoặc hủy chuyến</li>
-                    <li><span class="checkmark">✓ </span>Bảo vệ trong nước và quốc tế</li>
-                    <li><span class="checkmark">✓ </span>Dịch vụ hỗ trợ khẩn cấp 24/7</li>
-                </ul>
-                <div class="ChucNang-Goi">
-                    <a href="" class="btn-buy">Mua ngay 105.000VND</a>
-                </div>
+        <div class="Baohiem">
+            <div class="Noidung-Chung">
+                <h1>Bảo hiểm Du lịch cho Gia đình</h1>
+                <p>
+                    Mang đến giải pháp bảo vệ toàn diện cho cả gia đình trong mọi chuyến đi – trong nước và quốc tế. Chỉ
+                    với
+                    một hợp đồng duy nhất, tất cả thành viên đều được bảo vệ trước các rủi ro có thể xảy ra khi du lịch.
+                </p>
             </div>
 
-            <div class="GoiBaoHiem-Loai">
-                <div class="Ten-LoaiBaoHiem">
-                    <h2>Nâng Cao</h2>
-                </div>
-                <ul class="NoiDung-Goi">
-                    <li><span class="checkmark">✓ </span>Chi phí y tế</li>
-                    <li><span class="checkmark">✓ </span>Bảo hiểm tai nạn</li>
-                    <li><span class="checkmark">✓ </span>Bảo hiểm tài sản, hành lí...</li>
-                    <li><span class="checkmark">✓ </span>Bồi thường trách nhiệm cá nhân</li>
-                    <li><span class="checkmark">✓ </span>Bảo vệ trong nước và quốc tế</li>
-                    <li><span class="checkmark">✓ </span>Hỗ trợ khẩn cấp toàn cầu 24/7</li>
-                </ul>
-                <div class="ChucNang-Goi">
-                    <a href="" class="btn-buy">Mua ngay 168.000VND</a>
+            <div class="GoiBaoHiem">
+                <div class="GoiBaoHiem-Loai">
+                    <div class="Ten-LoaiBaoHiem">
+                        <h2>Cơ Bản</h2>
+                    </div>
+                    <ul class="NoiDung-Goi">
+                        <li><span class="checkmark">✓ </span>Chi trả chi phí y tế</li>
+                        <li><span class="checkmark">✓ </span>Bồi thường mất hành lý, giấy tờ, tài sản</li>
+                        <li><span class="checkmark">✓ </span>Bảo hiểm hoãn hoặc hủy chuyến</li>
+                        <li><span class="checkmark">✓ </span>Trợ giúp y tế 24/24</li>
+                    </ul>
+                    <div class="ChucNang-Goi">
+                        <a href="" class="btn-buy">Mua ngay 720.000VND</a>
 
+                    </div>
                 </div>
-            </div>
 
-            <div class="GoiBaoHiem-Loai">
-                <div class="Ten-LoaiBaoHiem">
-                    <h2>Cao Cấp</h2>
+                <div class="GoiBaoHiem-Loai">
+                    <div class="Ten-LoaiBaoHiem">
+                        <h2>Nâng cao </h2>
+                    </div>
+                    <ul class="NoiDung-Goi">
+                        <li><span class="checkmark">✓ </span>Chi trả chi phí y tế</li>
+                        <li><span class="checkmark">✓ </span>Bảo hiểm hành lý</li>
+                        <li><span class="checkmark">✓ </span>Bảo hiểm hoãn hoặc hủy chuyến</li>
+                        <li><span class="checkmark">✓ </span>Chi trả trách nhiệm dân sự</li>
+                        <li><span class="checkmark">✓ </span>Hỗ trợ y tế & cấp cứu ở nước ngoài 24/7</li>
+                    </ul>
+                    <div class="ChucNang-Goi">
+                        <a href="" class="btn-buy">Mua ngay 1.600.000VND</a>
+
+                    </div>
                 </div>
-                <ul class="NoiDung-Goi">
-                    <li><span class="checkmark">✓ </span>Hạn mức chi trả cao nhất</li>
-                    <li><span class="checkmark">✓ </span>Hỗ trợ y tế, hồi hương khẩn cấp</li>
-                    <li><span class="checkmark">✓ </span>Bồi thường trách nhiệm cá nhân</li>
-                    <li><span class="checkmark">✓ </span>Bảo hiểm trễ hành lí</li>
-                    <li><span class="checkmark">✓ </span>Bảo hiểm rủi ro du lịch</li>
-                    <li><span class="checkmark">✓ </span>Dịch vụ hỗ trợ ưu tiên 24/7</li>
-                </ul>
-                <div class="ChucNang-Goi">
-                    <a href="" class="btn-buy">Mua ngay 217.000VND</a>
 
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="Baohiem">
-        <div class="Noidung-Chung">
-            <h1>Bảo hiểm Du lịch cho Gia đình</h1>
-            <p>
-                Mang đến giải pháp bảo vệ toàn diện cho cả gia đình trong mọi chuyến đi – trong nước và quốc tế. Chỉ với
-                một hợp đồng duy nhất, tất cả thành viên đều được bảo vệ trước các rủi ro có thể xảy ra khi du lịch.
-            </p>
-        </div>
+                <div class="GoiBaoHiem-Loai">
+                    <div class="Ten-LoaiBaoHiem">
+                        <h2>Cao cấp</h2>
+                    </div>
+                    <ul class="NoiDung-Goi">
+                        <li><span class="checkmark">✓ </span>Bảo vệ tối đa</li>
+                        <li><span class="checkmark">✓ </span>Hạn mức chi trả cao nhất cho y tế, tai nạn</li>
+                        <li><span class="checkmark">✓ </span>Hỗ trợ vận chuyển y tế toàn cầu, hồi hương khẩn cấp</li>
+                        <li><span class="checkmark">✓ </span>Dịch vụ chăm sóc khách hàng ưu tiên 24/7</li>
+                    </ul>
+                    <div class="ChucNang-Goi">
+                        <a href="" class="btn-buy">Mua ngay 2.100.000VND</a>
 
-        <div class="GoiBaoHiem">
-            <div class="GoiBaoHiem-Loai">
-                <div class="Ten-LoaiBaoHiem">
-                    <h2>Cơ Bản</h2>
-                </div>
-                <ul class="NoiDung-Goi">
-                    <li><span class="checkmark">✓ </span>Chi trả chi phí y tế</li>
-                    <li><span class="checkmark">✓ </span>Bồi thường mất hành lý, giấy tờ, tài sản</li>
-                    <li><span class="checkmark">✓ </span>Bảo hiểm hoãn hoặc hủy chuyến</li>
-                    <li><span class="checkmark">✓ </span>Trợ giúp y tế 24/24</li>
-                </ul>
-                <div class="ChucNang-Goi">
-                    <a href="" class="btn-buy">Mua ngay 720.000VND</a>
-
-                </div>
-            </div>
-
-            <div class="GoiBaoHiem-Loai">
-                <div class="Ten-LoaiBaoHiem">
-                    <h2>Nâng cao </h2>
-                </div>
-                <ul class="NoiDung-Goi">
-                    <li><span class="checkmark">✓ </span>Chi trả chi phí y tế</li>
-                    <li><span class="checkmark">✓ </span>Bảo hiểm hành lý</li>
-                    <li><span class="checkmark">✓ </span>Bảo hiểm hoãn hoặc hủy chuyến</li>
-                    <li><span class="checkmark">✓ </span>Chi trả trách nhiệm dân sự</li>
-                    <li><span class="checkmark">✓ </span>Hỗ trợ y tế & cấp cứu ở nước ngoài 24/7</li>
-                </ul>
-                <div class="ChucNang-Goi">
-                    <a href="" class="btn-buy">Mua ngay 1.600.000VND</a>
-
-                </div>
-            </div>
-
-            <div class="GoiBaoHiem-Loai">
-                <div class="Ten-LoaiBaoHiem">
-                    <h2>Cao cấp</h2>
-                </div>
-                <ul class="NoiDung-Goi">
-                    <li><span class="checkmark">✓ </span>Bảo vệ tối đa</li>
-                    <li><span class="checkmark">✓ </span>Hạn mức chi trả cao nhất cho y tế, tai nạn</li>
-                    <li><span class="checkmark">✓ </span>Hỗ trợ vận chuyển y tế toàn cầu, hồi hương khẩn cấp</li>
-                    <li><span class="checkmark">✓ </span>Dịch vụ chăm sóc khách hàng ưu tiên 24/7</li>
-                </ul>
-                <div class="ChucNang-Goi">
-                    <a href="" class="btn-buy">Mua ngay 2.100.000VND</a>
-
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<!--Câu hỏi thường gặp-->
 <div class="questions" id="questions">
     <div class="container-questions">
         <div class="questions-title">
@@ -982,19 +993,96 @@
             </details>
             <details>
                 <summary>Tôi cần làm gì nếu cần hổ trợ khẩn cấp khi đang đi du lịch ?</summary>
-                <p>Khi gặp tình huống khẩn cấp, Quý khách vui lòng gọi +84 123 456 789 để được <strong>Travel Insurance </strong>hổ trợ ngay lập tức</p>
-                <p>Các chi phí thuộc trách nhiệm bảo hiểm sẽ được <strong>Travel Insurance </strong>chi trả, theo điều kiện và điều khoản của hợp đồng bảo hiểm</p>
+                <p>Khi gặp tình huống khẩn cấp, Quý khách vui lòng gọi +84 123 456 789 để được <strong>Travel
+                    Insurance </strong>hổ trợ ngay lập tức</p>
+                <p>Các chi phí thuộc trách nhiệm bảo hiểm sẽ được <strong>Travel Insurance </strong>chi trả, theo điều
+                    kiện và điều khoản của hợp đồng bảo hiểm</p>
             </details>
             <details>
                 <summary>Làm thế nào để yêu cầu bồi thường ?</summary>
                 <p>Quý khách có thể liên hệ với chúng tôi theo số điện thoại 012 3456 789 để được giải đáp thắc mắc</p>
-                <p>Quý khách vui lòng nhập đầy đủ thông tin và các chứng từ liên quan theo hướng dẫn thủ tục khiếu nại bồi thường</p>
+                <p>Quý khách vui lòng nhập đầy đủ thông tin và các chứng từ liên quan theo hướng dẫn thủ tục khiếu nại
+                    bồi thường</p>
             </details>
         </div>
     </div>
 </div>
 
+<!-- Liên hệ -->
+<div class="contact-section" id="contact-section">
+    <div class="contact-wrapper">
+        <div class="contact-text">
+            <h2>Bạn cần hỗ trợ?<br>Hãy gửi yêu cầu gọi thoại hoặc liên hệ với chúng tôi qua số điện thoại bên dưới!</h2>
+            <div class="info-box">
+                <p><strong>Trong chuyến đi</strong><br>
+                    <span class="hotline">+84 123 456 789</span><br>
+                    Hỗ trợ dịch vụ toàn cầu</p>
+                <p><strong>Trước & Sau chuyến đi</strong><br>
+                    <span class="hotline">+84 123 456 789</span><br>
+                    Thứ 2 đến Thứ 6 (giờ hành chính), không bao gồm ngày lễ</p>
+            </div>
+        </div>
 
+        <form class="contact-form">
+            <input type="text" placeholder="Họ và tên" required>
+            <input type="text" placeholder="Điện thoại" required>
+            <input type="email" placeholder="Email" required>
+            <button type="submit">Gửi yêu cầu</button>
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Cột 1: Logo và mô tả -->
+        <div class="footer-column">
+            <img src="../image/travel-insurance.png" alt="Logo" class="footer-logo">
+            <p>
+                Bảo vệ những gì bạn yêu quý<br>
+                Luôn bên bạn trong mọi hành trình
+            </p>
+        </div>
+
+        <!-- Cột 2: Liên kết nhanh -->
+        <div class="footer-column">
+            <h3>Liên kết nhanh</h3>
+            <ul>
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#benefits">Quyền lợi</a></li>
+                <li><a href="#products">Gói bảo hiểm</a></li>
+                <li><a href="#questions">Câu hỏi thường gặp</a></li>
+                <li><a href="#contact-section">Liên hệ</a></li>
+            </ul>
+        </div>
+
+        <!-- Cột 3: Thông tin liên hệ -->
+        <div class="footer-column">
+            <h3>Liên hệ</h3>
+            <ul>
+                <li><strong>Địa chỉ:</strong> Khu phố 33, phường Linh Xuân, TP.Hồ Chí Minh, Việt Nam</li>
+                <li><strong>Hotline:</strong> +84 123 456 789</li>
+                <li><strong>Email:</strong> support@travelinsurance.vn</li>
+                <li><strong>Giờ làm việc:</strong> 8:00 - 20:00 (T2 - CN)</li>
+            </ul>
+        </div>
+
+        <!-- Cột 4: Mạng xã hội -->
+        <div class="footer-column">
+            <h3>Kết nối với chúng tôi</h3>
+            <div class="social-icons">
+                <a href="#"><img src="../image/communication.png" alt="Facebook"></a>
+                <a href="#"><img src="../image/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="../image/youtube.png" alt="YouTube"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2025 Travel Insurance. Mọi quyền được bảo lưu.<br></span>
+        <span>Trường Đại học Nông Lâm TP. Hồ Chí Minh, Việt Nam</span>
+    </div>
+</footer>
 
 </body>
 </html>
