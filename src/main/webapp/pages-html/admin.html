@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles-css/admin.css">
+</head>
+<body>
+    <header>
+    <h1>Quản Lý Bảo Hiểm</h1>
+    <div class="admin">
+      <label >Admin</label>
+      <img src="../image/user-gear.png" alt="admin">
+    </div>
+    
+</header>
+
+<div class="container">
+  
+    <!-- Phần 1: Thay đổi giá gói bảo hiểm -->
+    <h2>Thay đổi giá gói bảo hiểm</h2>
+    <form action="/updatePrice" method="POST">
+        <label >Chọn loại bảo hiểm du lịch</label>
+        <select name="maLoai">
+            <option value="1">Bảo hiểm Du lịch cho Cá nhân</option>
+            <option value="2">Bảo hiểm Du lịch cho Gia đình</option>
+        </select>
+        <label>Chọn gói:</label>
+        <select name="maGoi">
+            <option value="1">Cơ Bản</option>
+            <option value="2">Nâng Cao</option>
+            <option value="3">Cao Cấp</option>
+        </select>
+        <label>Giá mới (VNĐ):</label>
+        <input type="number" name="giaMoi" step="1000" min="0" required>
+        <button type="submit">Cập nhật giá</button>
+    </form>
+    <!-- Danh sách khách hàng cần liên hệ -->
+     <h2>Danh sách khách hàng cần liên hệ</h2>
+    <table>
+        <thead>
+            <tr class="green">
+                <th>STT</th>
+                <th>Họ và tên</th>
+                <th>SĐT</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Danh sách các khách hàng cần liên hệ -->
+        </tbody>
+    </table>
+    <!-- Ví dụ bảng hiển thị khách hàng đã mua -->
+    <h2>Danh sách khách hàng đã mua bảo hiểm</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Họ và tên</th>
+                <th>SĐT</th>
+                <th>Ngày sinh</th>
+                <th>Địa chỉ</th>
+                <th>Email</th>
+                <th>Gói mua</th>
+                <th>Ngày mua</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Danh sách các khách hàng đã mua sản phẩm -->
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
