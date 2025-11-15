@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mua bảo hiểm du lịch</title>
+    <link rel="stylesheet" href="../styles-css/buy-page.css">
+    <script src="../scripts-js/buy-page.js"></script>
+</head>
+<body>
+<header class="header-buy">
+    <div class="container-header">
+        <a href="home.html" class="logo-link">
+            <div class="header-logo">
+                <img src="../image/travel-insurance.png" alt="">
+                <div class="logo-text-wrapper">
+                    <h1>Travel</h1>
+                    <h1>Insurance</h1>
+                </div>
+            </div>
+        </a>
+        <div class="divider"></div>
+        <div class="sologan">Hành trình của bạn - Trách nhiệm của chúng tôi</div>
+    </div>
+</header>
+
+<div class="line"></div>
+
+<div class="trip-information">
+    <div class="container-trip-infomation">
+        <ul class="nav-steps">
+            <li id="step1" class="active">1. Thông tin chuyến đi</li>
+            <li id="step2">2. Gói bảo hiểm</li>
+            <li id="step3">3. Thông tin hành khách</li>
+            <li id="step4">4. Xác nhận</li>
+            <li id="step5">5. Thanh toán</li>
+        </ul>
+    </div>
+
+    <form id="step1-information-travel" class="quote-form">
+        <div class="form-group">
+            <label>Điểm đến</label>
+            <div class="radio-group">
+                <label><input type="radio" name="diemden" checked> Toàn cầu</label>
+                <label><input type="radio" name="diemden"> Châu Á</label>
+                <label><input type="radio" name="diemden"> Đông Nam Á</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Thời gian chuyến đi</label>
+            <div class="date-group">
+                <div>
+                    <span>Từ</span>
+                    <input type="date" value="0000-0-0" id="start-date">
+                    <span class="error-msg" id="start-date-error"></span>
+                </div>
+                <div>
+                    <span>Đến</span>
+                    <input type="date" value="0000-0-0" id="end-date">
+                    <span class="error-msg" id="end-date-error"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Loại hình đơn</label>
+            <div class="radio-group">
+                <label><input type="radio" name="don" checked value="Cá nhân">Cá nhân</label>
+                <label><input type="radio" name="don" value="Gia đình">Gia đình</label>
+                <label><input type="radio" name="don" value="Nhóm">Nhóm</label>
+            </div>
+        </div>
+
+        <div class="form-group" id="people-group">
+            <label>Số người đi</label>
+            <div class="people-group">
+                <label>Người lớn
+                    <input type="number" value="1" min="1" id="adults-count">
+                </label>
+                <label>Người phụ thuộc
+                    <span class="tooltip-container">
+                        <span class="tooltip-icon">?</span>
+                        <span class="tooltip-content">Từ 1 Đến 13 tuổi</span>
+                     </span>
+                    <input type="number" value="0" min="0" id="dependent-count">
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Mã khuyến mãi</label>
+            <input type="text" placeholder="Nhập mã khuyến mãi">
+            <span class="error-msg"></span>
+        </div>
+
+        <div class="form-group center">
+            <button type="submit" class="btn" id="step1-next-button">TIẾP THEO</button>
+        </div>
+    </form>
+
+    <div id="step2-insurance-package" class="insurance-package hidden">
+        <div class="container-insurance-package">
+            <h2>Vui lòng chọn gói bảo hiểm phù hợp</h2>
+            <span class="error-msg" id="choose-package-error"></span>
+
+            <div class="package-card">
+                <div class="package-header">
+                    <h3>Gói cao cấp</h3>
+                    <span class="price">199.000 VNĐ</span>
+                </div>
+
+                <div class="package-detail">
+                    <div class="detail-row">
+                        <span>Tai nạn cá nhân</span>
+                        <span class="limit">Lên đến 3.000.000.000 vnđ</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Chi phí y tế (bao gồm Vận chuyển Y tế)</span>
+                        <span class="limit">Lên đến 3.201.000.000 vnđ</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Sự cố ngoài ý muốn</span>
+                        <span class="limit">Lên đến 347.000.000 vnđ</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Quyền lợi mở rộng</span>
+                        <span class="limit">Lên đến 33.000.000 vnđ</span>
+                    </div>
+                </div>
+
+                <div class="package-actions">
+                    <a href="#" class="detail-link">Chi tiết</a>
+                    <button class="btn-package btn-choose">Chọn</button>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-header">
+                    <h3>Gói nâng cao</h3>
+                    <span class="price">149.000 VNĐ</span>
+                </div>
+
+                <div class="package-detail">
+                    <div class="detail-row">
+                        <span>Tai nạn cá nhân</span>
+                        <span class="limit">Lên đến 2.000.000.000 vnđ</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Chi phí y tế (bao gồm Vận chuyển Y tế)</span>
+                        <span class="limit">Lên đến 2.111.000.000 vnđ</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Sự cố ngoài ý muốn</span>
+                        <span class="limit">Lên đến 229.400.000 vnđ</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Quyền lợi mở rộng</span>
+                        <span class="limit">Lên đến 27.000.000 vnđ</span>
+                    </div>
+                </div>
+
+                <div class="package-actions">
+                    <a href="#" class="detail-link">Chi tiết</a>
+                    <button class="btn-package btn-choose">Chọn</button>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-header">
+                    <h3>Gói cơ bản</h3>
+                    <span class="price">99.000 VNĐ</span>
+                </div>
+
+                <div class="package-detail">
+                    <div class="detail-row">
+                        <span>Tai nạn cá nhân</span>
+                        <span class="limit">Lên đến 1.000.000.000 vnđ</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Chi phí y tế (bao gồm Vận chuyển Y tế)</span>
+                        <span class="limit">Lên đến 1.326.000.000 vnđ</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Sự cố ngoài ý muốn</span>
+                        <span class="limit">Lên đến 154.600.000 vnđ</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Quyền lợi mở rộng</span>
+                        <span class="limit">Lên đến 23.000.000 vnđ</span>
+                    </div>
+                </div>
+
+                <div class="package-actions">
+                    <a href="#" class="detail-link">Chi tiết</a>
+                    <button class="btn-package btn-choose">Chọn</button>
+                </div>
+            </div>
+
+            <div class="step-action">
+                <button type="button" class="btn" id="step2-back-button">QUAY LẠI</button>
+                <button type="button" class="btn" id="step2-next-button">TIẾP THEO</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="step3-passenger-information" class="passenger-information hidden">
+        <div class="container-passenger-information">
+            <form class="contract-form">
+                <h3>CHỦ HỢP ĐỒNG</h3>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="ho-ten-chu-hd">Họ và tên</label>
+                        <input type="text" id="ho-ten-chu-hd">
+                        <span class="error-msg" id="name-ownner-error"></span>
+                    </div>
+                    <div class="form-col">
+                        <label for="sdt-chu-hd">Số điện thoại</label>
+                        <input type="tel" id="sdt-chu-hd">
+                        <span class="error-msg" id="phone-ownner-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="dia-chi-email">Địa chỉ thư điện tử</label>
+                        <input type="email" id="dia-chi-email">
+                        <span class="error-msg" id="email-ownner-error"></span>
+
+                    </div>
+                    <div class="form-col">
+                        <label for="xac-nhan-email">Xác nhận địa chỉ thư điện tử</label>
+                        <input type="email" id="xac-nhan-email">
+                        <span class="error-msg" id="confirm-email-ownner-error"></span>
+
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="nam-sinh-chu-hd">Ngày tháng năm sinh</label>
+                        <input type="date" id="nam-sinh-chu-hd">
+                        <span class="error-msg" id="birth-ownner-error"></span>
+                    </div>
+                    <div class="form-col">
+                        <label for="gioi-tinh-chu-hd">Giới tính</label>
+                        <select id="gioi-tinh-chu-hd">
+                            <option value="" disabled selected>Chọn giới tính</option>
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                        </select>
+                        <span class="error-msg" id="sex-ownner-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="quoc-tich-chu-hd">Quốc tịch</label>
+                        <select id="quoc-tich-chu-hd">
+                            <option value="" disabled selected>Chọn quốc tịch</option>
+                            <option value="Vietnamese">Vietnamese</option>
+                            <option value="Khac">Khác</option>
+                        </select>
+                        <span class="error-msg" id="national-ownner-error"></span>
+                    </div>
+                    <div class="form-col">
+                        <label for="cmt-hc-chu-hd">Số CMT/Hộ chiếu</label>
+                        <input type="text" id="cmt-hc-chu-hd">
+                        <span class="error-msg" id="cmt-ownner-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="dia-chi-chu-hd">Địa chỉ</label>
+                        <input type="text" id="dia-chi-chu-hd">
+                        <span class="error-msg" id="address-ownner-error"></span>
+                    </div>
+                </div>
+
+            </form>
+
+            <h3 class="h3-content">THÔNG TIN NGƯỜI ĐƯỢC BẢO HIỂM</h3>
+            <p class="description">Để nhập/sửa thông tin, vui lòng nhấn vào bất kỳ vị trí nào trong dòng có Số thứ
+                tự ("STT") tương ứng, hoặc nhấn vào biểu tượng trong cột "Chỉnh sửa" (cột ngoài cùng bên phải).</p>
+
+            <table class="beneficiary-table">
+                <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Họ và tên</th>
+                    <th>Ngày tháng năm sinh</th>
+                    <th>Tuổi</th>
+                    <th>Số CMT/Hộ chiếu</th>
+                    <th>Giới tính</th>
+                    <th>Quốc tịch</th>
+                    <th>Quan hệ với chủ hợp đồng</th>
+                    <th>Chỉnh sửa</th>
+                </tr>
+                </thead>
+                <tbody id="beneficiary-tbody">
+                <tr class="edit-row">
+                    <td>1</td>
+                    <td class="cell-ho-ten cell-edit"></td>
+                    <td class="cell-ngay-sinh cell-edit"></td>
+                    <td class="cell-tuoi cell-edit"></td>
+                    <td class="cell-cmt cell-edit"></td>
+                    <td class="cell-gioi-tinh cell-edit"></td>
+                    <td class="cell-quoc-tich cell-edit"></td>
+                    <td class="cell-quan-he cell-edit"></td>
+                    <td class="cell-icon"><i class="edit-icon cell-edit">✎</i></td>
+                </tr>
+                </tbody>
+            </table>
+            <span class="error-msg" id="info-people-error"></span>
+
+            <div class="step-action">
+                <button type="button" class="btn" id="step3-back-button">QUAY LẠI</button>
+                <button type="button" class="btn" id="step3-next-button">TIẾP THEO</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>Thông tin người được bảo hiểm</h3>
+                <button class="popup-close" id="popup-close-btn">&times;</button>
+            </div>
+            <div class="popup-body">
+                <form id="popup-form">
+                    <div class="form-row-popup">
+                        <div class="form-col-popup">
+                            <label for="popup-ho-ten">Họ và tên</label>
+                            <input type="text" id="popup-ho-ten">
+                        </div>
+                        <div class="form-col-popup">
+                            <label for="popup-ngay-sinh">Ngày tháng năm sinh</label>
+                            <input type="date" id="popup-ngay-sinh">
+                        </div>
+                    </div>
+                    <div class="form-row-popup">
+                        <div class="form-col-popup">
+                            <label for="popup-gioi-tinh">Giới tính</label>
+                            <select id="popup-gioi-tinh">
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ">Nữ</option>
+                            </select>
+                        </div>
+                        <div class="form-col-popup">
+                            <label for="popup-quoc-tich">Quốc tịch</label>
+                            <select id="popup-quoc-tich">
+                                <option value="Vietnamese">Vietnamese</option>
+                                <option value="Khac">Khác</option>
+                            </select>
+                        </div>
+                        <div class="form-col-popup">
+                            <label for="popup-cmt">Số CMT/Hộ chiếu</label>
+                            <input type="text" id="popup-cmt">
+                        </div>
+                    </div>
+                    <div class="form-row-popup">
+                        <div class="form-col-popup">
+                            <label for="popup-quan-he">Quan hệ với chủ hợp đồng</label>
+                            <select id="popup-quan-he">
+                                <option value="Bản thân">Bản thân</option>
+                                <option value="Vợ/Chồng">Vợ/Chồng</option>
+                                <option value="Con">Con</option>
+                                <option value="Bố/Mẹ">Bố/Mẹ</option>
+                                <option value="Bố/mẹ của vợ/chồng">Bố/mẹ của vợ/chồng</option>
+                                <option value="Thành viên đoàn">Thành viên đoàn</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="popup-footer">
+                <button type="button" class="btn-save" id="popup-save-button">Lưu</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="step4-confirm-information" class="confirm-information hidden">
+        <div class="container-confirm-information">
+            <h3>THÔNG TIN CHUYẾN ĐI</h3>
+            <button class="edit-button" data-step="1">Sửa</button>
+            <div class="trip-information-table">
+                <span class="label">Điểm đến</span>
+                <span class="value" id="diem-den-value"></span>
+
+                <span class="label">Thời gian chuyến đi</span>
+                <span class="value">
+                    <span id="ngay-bat-dau-value"></span>
+                    <span>đến</span>
+                    <span id="ngay-ket-thuc-value"></span>
+                </span>
+
+                <span class="label">Số ngày</span>
+                <span class="value" id="so-ngay-value"></span>
+
+                <span class="label">Loại hình đơn</span>
+                <span class="value" id="loai-hinh-don-value"></span>
+
+                <span class="label">Số người đi</span>
+                <span class="value" id="so-nguoi-di-value"></span>
+            </div>
+
+            <h3>GÓI BẢO HIỂM</h3>
+            <button class ="edit-button" data-step="2">Sửa</button>
+            <div class="package-insurance-table">
+                <span class="label">Gói lựa chọn</span>
+                <span class="value" id="ten-goi-value"></span>
+
+                <span class="label">Giá gói</span>
+                <span class="value">
+                    <span id="gia-goi-value"></span>
+                    <span>VNĐ</span>
+                </span>
+            </div>
+
+            <h3>CHỦ HỢP ĐỒNG</h3>
+            <button class="edit-button" data-step="3">Sửa</button>
+            <div class="contract-owner-table">
+                <span class="label">Họ và tên</span>
+                <span class="value" id="ho-ten-chu-hd-value"></span>
+
+                <span class="label">Ngày tháng năm sinh</span>
+                <span class="value" id="nam-sinh-chu-hd-value"></span>
+
+                <span class="label">Giới tính</span>
+                <span class="value" id="gioi-tinh-chu-hd-value"></span>
+
+                <span class="label">Quốc tịch</span>
+                <span class="value" id="quoc-tich-chu-hd-value"></span>
+
+                <span class="label">Số CMT/Hộ chiếu</span>
+                <span class="value" id="cmt-hc-chu-hd-value"></span>
+
+                <span class="label">Số điện thoại</span>
+                <span class="value" id="sdt-chu-hd-value"></span>
+
+                <span class="label">Địa chỉ</span>
+                <span class="value" id="dia-chi-chu-hd-value"></span>
+
+                <span class="label">Địa chỉ thư điện tử</span>
+                <span class="value" id="dia-chi-email-value"></span>
+            </div>
+
+            <h3>DANH SÁCH NGƯỜI ĐƯỢC BẢO HIỂM</h3>
+            <button class="edit-button" data-step="3">Sửa</button>
+            <table class="step4-beneficiary-table">
+                <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Họ và tên</th>
+                    <th>Ngày tháng năm sinh</th>
+                    <th>Tuổi</th>
+                    <th>Số CMT/Hộ chiếu</th>
+                    <th>Giới tính</th>
+                    <th>Quốc tịch</th>
+                    <th>Quan hệ với chủ hợp đồng</th>
+                </tr>
+                </thead>
+                <tbody id="step4-beneficiary-tbody">
+                <tr class="step4-edit-row">
+                    <td>1</td>
+                    <td class="cell-ho-ten cell-edit"></td>
+                    <td class="cell-ngay-sinh cell-edit"></td>
+                    <td class="cell-tuoi cell-edit"></td>
+                    <td class="cell-cmt cell-edit"></td>
+                    <td class="cell-gioi-tinh cell-edit"></td>
+                    <td class="cell-quoc-tich cell-edit"></td>
+                    <td class="cell-quan-he cell-edit"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="step-action">
+                <button type="button" class="btn" id="step4-back-button">QUAY LẠI</button>
+                <button type="button" class="btn" id="step4-next-button">TIẾP THEO</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="step5-payment" class="payment hidden">
+        <div class="container-payment">
+            <h3>LỰA CHỌN HÌNH THỨC THANH TOÁN</h3>
+            <div class="payment-method">
+                <label>
+                    <input type="radio" name="payment" value="qr"> Quét mã QR / Ví điện tử
+                </label><br>
+                <label>
+                    <input type="radio" name="payment" value="visa"> Thẻ Quốc tế Visa, Master, JCB
+                </label><br>
+                <label>
+                    <input type="radio" name="payment" value="amt"> Thẻ ATM nội địa / Internet Banking
+                </label><br>
+                <label>
+                    <input type="radio" name="payment" value="transfer"> Chuyển khoản
+                </label>
+            </div>
+
+            <h3>CHẤP THUẬN</h3>
+            <label>
+                <input type="checkbox" name="notify" checked> Thông báo cho tôi khi có thông tin mới về sản phẩm, dịch vụ, khuyến mãi và các
+                sự kiện của <strong>Travel Insurance</strong>.
+            </label>
+            <label>
+                <input type="checkbox" name="agree"> Tôi đã đọc, hiểu và chấp thuận các Điều khoản sử dụng và Thông báo bảo mật và quyền riêng
+                tư các Điều kiện/Điều khoản trong hợp đồng bảo hiểm, bao gồm nhưng không giới hạn bởi các quyền lợi bảo hiểm, các loại trừ,
+                quyền và nghĩa vụ của người mua bảo hiểm trong Quy tắc bảo hiểm, và Điều khoản về cung cấp sản phẩm bảo hiểm trên môi trường
+                mạng đính kèm và là phần không tách rời của Hợp đồng bảo hiểm.
+                <br><br>
+                Tôi thừa nhận rằng trách nhiệm bảo hiểm của <strong>Travel Insurance</strong> sẽ chỉ phát sinh sau khi tôi đã thanh toán đầy đủ phí bảo hiểm theo
+                quy định của Hợp đồng bảo hiểm giao kết giữa tôi và <strong>Travel Insurance</strong>.
+                <br><br>
+                Tôi cam kết và xác nhận những thông tin đã cung cấp là đúng sự thực, đầy đủ và chính xác. Tôi xin chịu trách nhiệm hoàn toàn
+                trước pháp luật về toàn bộ thông tin đã cung cấp và hiểu rằng <strong>Travel Insurance</strong> sẽ không chịu trách nhiệm cho bất kỳ tổn thất hoặc
+                thiệt hại nào, bất kể là trực tiếp hay gián tiếp, gây ra do việc cung cấp thông tin không đầy đủ và/hoặc cung cấp thông tin
+                không chính xác.
+            </label>
+
+            <p class="note">
+                Lưu ý: Quý khách sẽ được chuyển đến trang của cổng thanh toán sau khi nhấn nút "Tiến hành mua".
+            </p>
+        </div>
+
+        <div class="step-action">
+            <button type="button" class="btn" id="step5-back-button">QUAY LẠI</button>
+            <button type="button" class="btn" id="step5-next-button">THANH TOÁN</button>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Cột 1: Logo và mô tả -->
+        <div class="footer-column">
+            <img src="../image/travel-insurance.png" alt="Logo" class="footer-logo">
+            <p>
+                Bảo vệ những gì bạn yêu quý<br>
+                Luôn bên bạn trong mọi hành trình
+            </p>
+        </div>
+
+        <!-- Cột 2: Thông tin liên hệ -->
+        <div class="footer-column">
+            <h3 class="h3-footer">Liên hệ</h3>
+            <ul>
+                <li><strong>Địa chỉ:</strong> 123 Nguyễn Văn Cừ, Quận 5, TP. Hồ Chí Minh</li>
+                <li><strong>Hotline:</strong> +84 123 456 789</li>
+                <li><strong>Email:</strong> support@travelinsurance.vn</li>
+                <li><strong>Giờ làm việc:</strong> 8:00 - 20:00 (T2 - CN)</li>
+            </ul>
+        </div>
+
+        <!-- Cột 3: Mạng xã hội -->
+        <div class="footer-column">
+            <h3>Kết nối với chúng tôi</h3>
+            <div class="social-icons">
+                <a href="#"><img src="../image/communication.png" alt="Facebook"></a>
+                <a href="#"><img src="../image/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="../image/youtube.png" alt="YouTube"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2025 Travel Insurance. Mọi quyền được bảo lưu.<br></span>
+        <span>Tầng 18, Tòa nhà Vincom, 123 Nguyễn Văn Cừ, Quận 5, TP. Hồ Chí Minh, Việt Nam</span>
+    </div>
+</footer>
+
+</body>
+</html>

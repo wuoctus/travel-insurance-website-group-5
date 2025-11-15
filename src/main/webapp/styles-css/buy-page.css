@@ -1,0 +1,976 @@
+body {
+    background: #e3e3e3;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header-buy {
+    background-color: #f2f2f2;
+    padding: 15px 0;
+    top: 0;
+    height: 40px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.container-header {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.logo-link {
+    text-decoration: none;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+}
+
+.header-logo img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.header-logo .logo-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.1;
+}
+
+.header-logo .logo-text-wrapper h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0d1495;
+    margin: 0;
+    padding: 0;
+}
+
+.header-logo .logo-text-wrapper h1:last-child {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0d1495;
+    margin-top: -2px;
+}
+
+.divider {
+    height: 45px;
+    width: 1.5px;
+    background-color: #0d1495;
+    margin: 0 20px;
+}
+
+.sologan {
+    font-size: 20px;
+    font-weight: 300;
+    color: #30347e;
+}
+
+.line {
+    height: 8px;
+    max-width: 1200px;
+    background-color: #0d1495;
+    margin: 0 auto;
+}
+
+.trip-information {
+    background-color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px 40px;
+    box-sizing: border-box;
+}
+
+.container-trip-infomation {
+    margin-bottom: 30px;
+}
+
+.nav-steps {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    border-bottom: 2px solid #0d1495;
+    padding-bottom: 15px;
+}
+
+.nav-steps li {
+    flex: 1;
+    text-align: center;
+    font-weight: 600;
+    color: #6d6d6d;
+    padding: 12px 0;
+    border-radius: 30px;
+    background-color: #edeff7;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-steps li.active {
+    background-color: #1c2c8c;
+    color: #fff;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.error-msg {
+    color: red;
+    font-size: 16px;
+    margin-top: 3px;
+    display: block;
+}
+#people-group { display: none; }
+
+
+/* ====== FORM ====== */
+.quote-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 16px;
+    color: black;
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-left: 20px;
+}
+
+.radio-group label {
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.date-group {
+    display: flex;
+    gap: 60px;
+    margin-left: 20px;
+
+}
+
+.date-group div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.date-group input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 200px;
+}
+
+.people-group {
+    display: flex;
+    gap: 30px;
+    margin-left: 20px;
+}
+
+#people-group {
+    margin-left: 20px;
+    display: none;
+}
+
+#people-group label {
+    margin-top: 15px;
+}
+
+.people-group label {
+    font-weight: 500;
+    color: #333;
+}
+
+.people-group input {
+    margin-top: 5px;
+    padding: 8px;
+    width: 100px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 30%;
+    margin-left: 20px;
+
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    cursor: pointer;
+}
+
+.tooltip-icon {
+    color: #d92525;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
+    border: 1px solid #d92525;
+    border-radius: 50%;
+    padding: 0 4px;
+}
+
+.tooltip-content {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+
+    padding: 6px 10px;
+    background-color: #f05050;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 20;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.tooltip-content::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #f05050 transparent transparent transparent; /* Màu đỏ cam */
+}
+
+.tooltip-container:hover .tooltip-content {
+    visibility: visible;
+    opacity: 1;
+}
+
+.center {
+    text-align: center;
+}
+
+.step-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.btn {
+    background-color: #d92525;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    box-sizing: border-box;
+    width: 150px;
+    display: block;
+    margin: 10px auto 0 auto;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #b81f1f;
+}
+
+
+.container-insurance-package {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px 0;
+}
+
+.container-insurance-package h2 {
+    width: 100%;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1c2c8c;
+    text-align: center;
+    margin-top: 0px;
+}
+
+#step2-insurance-package .error-msg {
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    margin: 10px auto 0 auto;
+}
+
+.package-card {
+    width: 800px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.package-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.package-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.package-card .price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+.package-detail {
+    padding: 15px 20px;
+    flex-grow: 1;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 14px;
+    border-bottom: 1px dotted #eee;
+}
+
+.detail-row span:first-child {
+    color: #555;
+}
+
+.detail-row .limit {
+    font-weight: 600;
+    color: #333;
+    text-align: right;
+    max-width: 50%;
+}
+
+.package-actions {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+}
+
+.detail-link {
+    color: #1c2c8c;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.btn-package {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 100px;
+}
+
+.btn-choose {
+    background-color: #0d1495;
+    color: #fff;
+}
+
+.button-package {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-top: 20px;
+}
+
+.button-package .btn {
+    width: 150px;
+}
+
+/* Hover vào header */
+.package-card:hover .package-header {
+    background-color: #1c2c8c;
+    color: #fff;
+    transition: background 0.3s, color 0.3s;
+}
+
+.package-card:hover .package-header h3,
+.package-card:hover .package-header .price {
+    color: #fff;
+}
+
+/* Gói được chọn */
+.package-card.selected {
+    border: 2px solid #1c2c8c;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.package-card.selected .package-header {
+    background-color: #0d1495;
+    color: #fff;
+}
+
+.package-card.selected .package-header h3,
+.package-card.selected .package-header .price {
+    color: #fff;
+}
+
+/* Nút chọn */
+.btn-choose {
+    min-width: 100px;
+    transition: background 0.3s;
+}
+
+.btn-choose.chosen {
+    background-color: #c1c0c0;
+    color: #fff;
+}
+
+.btn-choose.chosen::after {
+    margin-left: 5px;
+}
+
+.container-passenger-information {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 24px;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+}
+
+h3 {
+    color: #1c2c8c;
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.h3-content {
+    margin-top: 50px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    gap: 50px;
+}
+
+.form-col:first-child {
+    margin-left: 100px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #000000;
+}
+
+input[type="text"], input[type="email"], input[type="date"], input[type="tel"], select {
+    width: 400px;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+input[type="text"] {
+    margin-left: 0;
+}
+
+#dia-chi-chu-hd {
+    width: 850px;
+}
+
+
+/* --- Bảng thông tin --- */
+.description {
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+.beneficiary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.95em;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.beneficiary-table th,
+.beneficiary-table td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.beneficiary-table th {
+    background-color: #1c2c8c;
+    color: white;
+    font-weight: 600;
+}
+
+.beneficiary-table th:last-child,
+.beneficiary-table td:last-child {
+    text-align: center;
+}
+
+.beneficiary-table .edit-icon {
+    font-style: normal;
+    font-weight: bold;
+    color: #005A9C;
+    cursor: pointer;
+    font-size: 1.4em;
+}
+
+.cell-edit {
+    color: #005A9C;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#popup.hidden {
+    display: none;
+}
+
+.popup-content {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    width: 800px;
+    max-width: 90%;
+    overflow: hidden;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: #002D5A;
+    color: white;
+}
+
+.popup-header h3 {
+    margin: 0;
+    color: white;
+    font-size: 1.25em;
+    font-weight: 700;
+    text-transform: none
+}
+
+.popup-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.2em;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+}
+
+.popup-body {
+    padding: 24px;
+}
+
+.form-row-popup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.form-col-popup {
+    flex: 1;
+    min-width: 200px;
+}
+
+.popup-body label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #495057;
+}
+
+.popup-body input[type="text"],
+.popup-body input[type="date"],
+.popup-body select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+.popup-footer {
+    padding: 16px 24px;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #e9ecef;
+}
+
+.btn-save {
+    background-color: #E20000;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-save:hover {
+    background-color: #c00000;
+}
+
+
+.confirm-information {
+    padding: 20px;
+}
+
+.container-confirm-information {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+
+/* Thiết lập header chung cho bố cục tiêu đề và nút Sửa */
+.container-confirm-information h3 {
+    display: inline-block;
+    font-size: 26px;
+    color: #1c2c8c;
+    font-weight: bold;
+    margin: 30px 10px 15px 0;
+}
+
+.edit-button {
+    padding: 4px 10px;
+    background-color: #1c2c8c;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.trip-information-table,
+.contract-owner-table,
+.package-insurance-table{
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 8px 15px;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    margin-left: 150px;
+}
+
+.label {
+    /* Cột 1: Nhãn (Label) */
+    color: #000000;
+    font-weight: 400;
+    text-align: left;
+    font-size: 18px;
+}
+
+.value {
+    /* Cột 2: Giá trị (Value) */
+    color: #000000;
+    font-weight: 700;
+    text-align: left;
+    font-size: 18px;
+}
+
+/* Xử lý riêng cho dòng Thời gian chuyến đi (Giá trị có 3 phần tử) */
+.trip-information-table .value:nth-child(4) {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.trip-information-table .value:nth-child(4) span {
+    font-weight: bold;
+}
+.trip-information-table .value:nth-child(4) span:nth-child(2) {
+    font-weight: 400; /* Từ "đến" không in đậm */
+    font-size: 18px;
+}
+
+.package-insurance-table .value:nth-child(4) span {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.step4-beneficiary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.95em;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.step4-beneficiary-table th,
+.step4-beneficiary-table td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.step4-beneficiary-table th {
+    background-color: #38459c;
+    color: white;
+    font-weight: 600;
+}
+
+.step4-beneficiary-table th:last-child,
+.step4-beneficiary-table td:last-child {
+    text-align: center;
+}
+
+.step4-beneficiary-table .edit-icon {
+    font-style: normal;
+    font-weight: bold;
+    color: #005A9C;
+    cursor: pointer;
+    font-size: 1.4em;
+}
+
+.cell-edit {
+    color: #005A9C;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Container chính cho step5 */
+#step5-payment {
+}
+
+/* Box chứa nội dung */
+#step5-payment .container-payment {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+}
+
+#step5-payment h3 {
+    font-size: 26px;
+    margin-bottom: 25px;
+    color: #1c2c8c;
+    padding-top: 25px;
+}
+
+#step5-payment .payment-method {
+    margin-bottom: 25px;
+}
+
+#step5-payment .payment-method label {
+    display: block;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 15px;
+    background-color: #fafafa;
+}
+
+#step5-payment .payment-method label:hover {
+    background-color: #f0f8ff;
+    border-color: #1c2c8c;
+}
+
+#step5-payment .payment-method input[type="radio"] {
+    margin-right: 10px;
+}
+
+#step5-payment label input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+#step5-payment label {
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+#step5-payment .note {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #555;
+    background-color: #fffbe6;
+    padding: 12px 15px;
+    border-left: 4px solid #ffc107;
+    border-radius: 6px;
+}
+
+.btn-disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    pointer-events: none;
+    color: #666;
+}
+
+/* Footer */
+.footer {
+    background-color: #01579B;
+    color: #ffffff;
+    padding: 50px 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 85%;
+    margin: auto;
+    gap: 30px;
+}
+
+.footer-column {
+    flex: 1 1 250px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3A7CD5;
+    display: inline-block;
+    padding-bottom: 5px;
+    color: white;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    color: #3a7bd5;
+    text-decoration: underline;
+}
+
+.footer-logo {
+    width: 150px;
+    margin-bottom: 10px;
+}
+.social-icons {
+    margin-top: 11px;
+}
+.social-icons img {
+    width: 28px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #3a7bd5;
+    padding-top: 10px;
+    font-size: 14px;
+    color: #cccccc;
+}
