@@ -1,10 +1,11 @@
+/* BODY */
 body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-        }
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
 
-       
+/* HEADER */
 header {
     background-color: #0b2447;
     color: white;
@@ -20,84 +21,111 @@ header {
 h1 {
     margin-bottom: 0;
 }
-.logo{
+
+/* Logo */
+.logo {
     width: 100px;
     height: 100px;
     padding-left: 36px;
 }
 
+/* Admin */
 .admin {
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: end;
     gap: 5px;
     justify-content: flex-end;
     margin-bottom: 10px;
-    align-items: end;
 }
-.admin label{
+
+.admin label {
     padding-bottom: 4px;
 }
+
 .admin img {
     width: 27px;
     height: 27px;
     margin-top: 3px;
 }
-        /* Sidebar */
-        .sidebar {
-            width: 220px;
-            background: #FFFFFF;
-            height: auto;
-            position: fixed;    
-            top: 130px;
-            left: 0;
-            padding-top: 1px;
-        }
-        .sidebar button {
-            width: 100%;
-            padding: 15px;
-            background: none;
-            border: none;
-            color: #000000;
-            text-align: left;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .sidebar button:hover{
-            color: #6177FE;
-            background: #EBF0FF;
-        }
-        .sidebar button:active{
-            background: #EBF0FF;
-        }
-        /* Content */
-        .content {
-            margin-left: 240px;
-            padding: 20px;
-        }
 
-        .section {
-            display: none;
-            background: white;
-            padding: 20px;
-            border-radius: 6px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
+/* SIDEBAR */
+.sidebar {
+    width: 220px;
+    background: #FFFFFF;
+    height: auto;
+    position: fixed;    
+    top: 130px;
+    left: 0;
+    padding-top: 1px;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-        table, th, td {
-            border: 1px solid #ccc;
-        }
-        th {
-            background: #0b2447;
-            color: white;
-            padding: 10px;
-        }
-        td {
-            padding: 8px;
-        }
+.sidebar a {
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.sidebar a:hover {
+    color: #6177FE;
+    background: #EBF0FF;
+}
+
+.sidebar a:active {
+    background: #EBF0FF;
+}
+
+/* CONTENT */
+.content {
+    margin-left: 240px;
+    padding: 20px;
+}
+
+/* SECTION */
+.section {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+/* Hiển thị section khi target */
+#price:target {
+    display: block;
+}
+
+#customers:target {
+    display: block;
+}
+
+/* Hiển thị section mặc định nếu không có target nào */
+body:not(:has(:target)) #price {
+    display: block;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th {
+    background: #0b2447;
+    color: white;
+    padding: 10px;
+}
+
+td {
+    padding: 8px;
+}
