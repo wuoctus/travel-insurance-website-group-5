@@ -189,6 +189,58 @@ button:hover {
     clear: both;
     margin-top: 6px;
 }
+/* ====================== */
+/*  TĂNG KÍCH THƯỚC LẦN 2 */
+/* ====================== */
+
+/* Khung form to hơn */
+.login-container {
+    width: 480px;        /* tăng từ 420 → 480 */
+    padding: 40px;
+}
+
+/* Font toàn form to hơn */
+body, .login-container, input, button, label, p {
+    font-size: 19px;
+}
+
+/* Tiêu đề lớn hơn */
+.login-container h2 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* Dòng mô tả */
+.login-container p {
+    font-size: 17px;
+}
+
+/* Input lớn hơn nữa */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    padding: 16px;
+    font-size: 18px;
+    border-radius: 12px;
+}
+
+/* Nút bấm to hơn và nổi bật hơn */
+button {
+    padding: 16px;
+    font-size: 19px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+/* Link */
+.link-style {
+    font-size: 17px;
+}
+
+/* Logo */
+.logo-insurance {
+    width: 80px;     /* tăng từ 70 → 80 */
+}
 
 
 
