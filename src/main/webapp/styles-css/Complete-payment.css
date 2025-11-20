@@ -1,0 +1,291 @@
+body {
+    background: #e3e3e3;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header-buy {
+    background-color: #f2f2f2;
+    padding: 15px 0;
+    top: 0;
+    height: 40px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.container-header {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.logo-link {
+    text-decoration: none;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+}
+
+.header-logo img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.header-logo .logo-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.1;
+}
+
+.header-logo .logo-text-wrapper h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0d1495;
+    margin: 0;
+    padding: 0;
+}
+
+.header-logo .logo-text-wrapper h1:last-child {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0d1495;
+    margin-top: -2px;
+}
+
+.divider {
+    height: 45px;
+    width: 1.5px;
+    background-color: #0d1495;
+    margin: 0 20px;
+}
+
+.sologan {
+    font-size: 20px;
+    font-weight: 300;
+    color: #30347e;
+}
+
+.line {
+    height: 8px;
+    max-width: 1200px;
+    background-color: #0d1495;
+    margin: 0 auto;
+}
+
+.container-complete-payment {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #f2f2f2;
+}
+
+/* --- Thanh tiến trình (Progress Steps) --- */
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    padding: 50px 0 20px 0;
+    max-width: 900px; /* Giới hạn chiều rộng thanh bước */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.step {
+    text-align: center;
+    position: relative;
+    width: 20%; /* Chia đều cho 5 bước */
+    color: #0d47a1; /* Màu chữ bước hoàn thành */
+    font-weight: 600;
+}
+
+/* Icon (Dấu check) */
+.step-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #0d47a1; /* Màu xanh đậm (đã hoàn thành) */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 18px;
+    line-height: 1;
+    z-index: 2;
+    position: relative;
+}
+
+.step-text {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Đường nối giữa các bước */
+.step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 15px; /* Căn giữa theo chiều dọc của icon */
+    left: 50%;
+    width: calc(100% - 20px);
+    height: 2px;
+    background-color: #0d47a1;
+    z-index: 1;
+}
+
+/* Điều chỉnh đường nối để không đè lên icon của bước tiếp theo */
+.step:not(:last-child) {
+    /* Đẩy chữ sang trái 1 chút để đường nối chiếm hết khoảng trống */
+    padding-right: 0;
+}
+
+/* --- Nội dung thành công --- */
+.success-content {
+    text-align: center;
+    padding: 15px 20px;
+}
+
+.success-content h2 {
+    font-size: 32px;
+    color: #0d47a1;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.success-content p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Khung xác nhận */
+.confirmation-box {
+    background-color: #cbcfd5;
+    padding: 50px 20px;
+    margin: 40px auto;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px; /* Giới hạn chiều rộng box */
+    border-radius: 4px;
+}
+
+/* --- Nút hành động --- */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.btn-discover,
+.btn-buy-more {
+    padding: 15px 45px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #d32f2f; /* Màu đỏ */
+    color: white;
+}
+
+.btn-buy-more:hover {
+    background-color: #ba000d;
+}
+
+.btn-discover:hover{
+    background-color: #ba000d;
+}
+
+/* Footer */
+.footer {
+    background-color: #01579B;
+    color: #ffffff;
+    padding: 50px 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 85%;
+    margin: auto;
+    gap: 30px;
+}
+
+.footer-column {
+    flex: 1 1 250px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3A7CD5;
+    display: inline-block;
+    padding-bottom: 5px;
+    color: white;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    color: #3a7bd5;
+    text-decoration: underline;
+}
+
+.footer-logo {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    margin-top: 11px;
+}
+
+.social-icons img {
+    width: 28px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #3a7bd5;
+    padding-top: 10px;
+    font-size: 14px;
+    color: #cccccc;
+}

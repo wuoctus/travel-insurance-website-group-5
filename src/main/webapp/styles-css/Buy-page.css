@@ -134,7 +134,10 @@ body {
     margin-top: 3px;
     display: block;
 }
-#people-group { display: none; }
+
+#people-group {
+    display: none;
+}
 
 
 /* ====== FORM ====== */
@@ -359,6 +362,7 @@ input[type="text"] {
     background-color: #f9f9f9;
     border-bottom: 1px solid #eee;
     position: relative;
+    cursor: pointer;
 }
 
 .package-card h3 {
@@ -715,7 +719,6 @@ input[type="text"] {
 }
 
 
-
 /* Thiết lập header chung cho bố cục tiêu đề và nút Sửa */
 .container-confirm-information h3 {
     display: inline-block;
@@ -738,7 +741,7 @@ input[type="text"] {
 
 .trip-information-table,
 .contract-owner-table,
-.package-insurance-table{
+.package-insurance-table {
     display: grid;
     grid-template-columns: 220px 1fr;
     gap: 8px 15px;
@@ -774,6 +777,7 @@ input[type="text"] {
 .trip-information-table .value:nth-child(4) span {
     font-weight: bold;
 }
+
 .trip-information-table .value:nth-child(4) span:nth-child(2) {
     font-weight: 400; /* Từ "đến" không in đậm */
     font-size: 18px;
@@ -899,6 +903,141 @@ input[type="text"] {
     color: #666;
 }
 
+/* =======================
+   POPUP OVERLAY
+======================= */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* =======================
+   POPUP BOX
+======================= */
+.container-transfer-popup {
+    width: 600px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    animation: fadeIn 0.25s ease-in-out;
+}
+
+/* =======================
+   TEXT HEADER
+======================= */
+.popup-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.popup-note {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+/* =======================
+   TRANSFER INFORMATION BOX
+======================= */
+.transfer-info {
+    padding: 15px;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background: #fafafa;
+}
+
+.transfer-info strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.tag-number,
+.bank-name,
+.qr-text {
+    margin: 4px 0;
+}
+
+.qr-text {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.qr-box {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.qr-box img {
+    width: 170px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* =======================
+   VALUE FIELDS
+======================= */
+.label {
+    display: block;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.value-popup {
+    display: block;
+    margin: 5px 0 10px;
+    padding: 8px 10px;
+    background: #f1f1f1;
+    border-radius: 8px;
+    font-size: 14px;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+}
+
+/* =======================
+   BUTTONS
+======================= */
+.popup-button {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+}
+
+.btn-popup {
+    width: 48%;
+    padding: 10px 0;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #c62828;
+    background: #c62828;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.btn-popup:hover {
+    background-color: #af2929;
+}
+
+
 /* Footer */
 .footer {
     background-color: #01579B;
@@ -953,9 +1092,11 @@ input[type="text"] {
     width: 150px;
     margin-bottom: 10px;
 }
+
 .social-icons {
     margin-top: 11px;
 }
+
 .social-icons img {
     width: 28px;
     margin-right: 10px;
@@ -974,3 +1115,5 @@ input[type="text"] {
     font-size: 14px;
     color: #cccccc;
 }
+
+

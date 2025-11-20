@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Mua bảo hiểm du lịch</title>
-    <link rel="stylesheet" href="../styles-css/buy-page.css">
-    <script src="../scripts-js/buy-page.js"></script>
+    <link rel="stylesheet" href="../styles-css/Buy-page.css">
+    <script src="../scripts-js/Buy-page.js"></script>
 </head>
 <body>
 <header class="header-buy">
     <div class="container-header">
-        <a href="home.html" class="logo-link">
+        <a href="Main-home.html" class="logo-link">
             <div class="header-logo">
                 <img src="../image/travel-insurance.png" alt="">
                 <div class="logo-text-wrapper">
@@ -30,7 +30,7 @@
         <ul class="nav-steps">
             <li id="step1" class="active">1. Thông tin chuyến đi</li>
             <li id="step2">2. Gói bảo hiểm</li>
-            <li id="step3">3. Thông tin hành khách</li>
+            <li id="step3">3. Thông tin khách hàng</li>
             <li id="step4">4. Xác nhận</li>
             <li id="step5">5. Thanh toán</li>
         </ul>
@@ -533,6 +533,35 @@
             <button type="button" class="btn" id="step5-next-button">THANH TOÁN</button>
         </div>
     </div>
+
+    <div id="transfer-popup" class="popup hidden">
+        <div class="container-transfer-popup">
+            <h3 class="popup-title">Chuyển khoản</h3>
+            <p class="popup-note">Khách hàng chuyển khoản phí bảo hiểm tới tài khoản bên dưới</p>
+
+            <div class="transfer-info">
+                <strong>Công ty TNHH Bảo hiểm du lịch Travel Insurance</strong>
+                <p class="tag-number"> - Số thẻ: 84123456789</p>
+                <p class="bank-name"> - Tên ngân hàng: BIDV - Ngân hàng TMCP Đầu tư và Phát triển Việt Nam</p>
+                <p class="qr-text">Hoặc quét mã QR bên dưới</p>
+                <div class="qr-box">
+                    <img src="../image/QR.png" alt="QR code">
+                </div>
+            </div>
+
+            <span class="label">Số tiền</span>
+            <span class="value-popup" id="so-tien-value"></span>
+
+            <span class="label">Nội dung chuyển khoản (Không bắt buộc):</span>
+            <span class="value-popup" id="noi-dung-value"></span>
+
+            <div class="popup-button">
+                <button type="button" class="btn-popup" id="btn-change-method">Đổi phương thức thanh toán</button>
+                <button type="button" class="btn-popup" id="btn-complete">Hoàn tất</button>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <footer class="footer">
