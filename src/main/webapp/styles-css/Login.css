@@ -241,6 +241,26 @@ button {
 .logo-insurance {
     width: 80px;     /* tăng từ 70 → 80 */
 }
+.btn-login {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background-color: #546E7A;
+    color: white;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 19px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background-color: #455A64;
+}
+
 
 
 
