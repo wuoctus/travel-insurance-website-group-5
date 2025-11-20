@@ -1,5 +1,11 @@
-// Xử lí sự kiện cho các button trong step
+// Xử lí sự kiện cho cac button
 document.addEventListener("DOMContentLoaded", function () {
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('reset') === 'true') {
+        resetAllData();
+    }
+
     const step1 = document.getElementById("step1-information-travel");
     const step2 = document.getElementById("step2-insurance-package");
     const step3 = document.getElementById("step3-passenger-information");
@@ -92,10 +98,288 @@ document.addEventListener("DOMContentLoaded", function () {
         step4Nav.classList.add("active");
     })
 
+
+    // Hiện popup để chỉnh sửa thông tin khách hàng và lưu vào bảng
+    const popup = document.getElementById("popup");
+    const tbody = document.getElementById("beneficiary-tbody");
+    const popupCloseBtn = document.getElementById("popup-close-btn");
+    const popupSaveBtn = document.getElementById("popup-save-button");
+
+    let currentEditRow = null;
+
+    // Khi nhấn vào ô có class "cell-edit" thì hiện popup
+    tbody.addEventListener("click", function (e) {
+        const target = e.target.closest(".cell-edit");
+        if (!target) return;
+
+        currentEditRow = target.closest("tr");
+
+        // Lấy dữ liệu hiện tại từ bảng
+        const cells = currentEditRow.children;
+        document.getElementById("popup-ho-ten").value = cells[1].textContent;
+        document.getElementById("popup-ngay-sinh").value = cells[2].textContent;
+        document.getElementById("popup-gioi-tinh").value = cells[5].textContent;
+        document.getElementById("popup-quoc-tich").value = cells[6].textContent;
+        document.getElementById("popup-cmt").value = cells[4].textContent;
+        document.getElementById("popup-quan-he").value = cells[7].textContent;
+
+        // Hiện popup
+        popup.classList.remove("hidden");
+    });
+
+    // Khi nhấn nút Lưu
+    popupSaveBtn.addEventListener("click", function () {
+        if (!currentEditRow) return;
+
+        const hoTen = document.getElementById("popup-ho-ten").value;
+        const ngaySinh = document.getElementById("popup-ngay-sinh").value;
+        const cmt = document.getElementById("popup-cmt").value;
+        const gioiTinh = document.getElementById("popup-gioi-tinh").value;
+        const quocTich = document.getElementById("popup-quoc-tich").value;
+        const quanHe = document.getElementById("popup-quan-he").value;
+
+        const birthDate = new Date(ngaySinh);
+        const today = new Date();
+        let tuoi = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            tuoi--;
+        }
+
+        const cells = currentEditRow.children;
+        cells[1].textContent = hoTen;
+        cells[2].textContent = ngaySinh;
+        cells[3].textContent = tuoi;
+        cells[4].textContent = cmt;
+        cells[5].textContent = gioiTinh;
+        cells[6].textContent = quocTich;
+        cells[7].textContent = quanHe;
+
+        popup.classList.add("hidden");
+    });
+
+    // Khi nhấn nút đóng (X)
+    popupCloseBtn.addEventListener("click", function () {
+        popup.classList.add("hidden");
+    });
+
+
+    // Cá nhân -> ẩn số người đi, Gia đình/Nhóm -> hiện số người đi để chọn
+    // Lấy tất cả radio "Loại hình đơn"
+    const donRadios = document.querySelectorAll('input[name="don"]');
+    const peopleGroup = document.getElementById('people-group');
+
+    // Bắt sự kiện khi thay đổi lựa chọn
+    donRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (radio.value === "Gia đình" || radio.value === "Nhóm") {
+                peopleGroup.style.display = 'block';
+            } else {
+                peopleGroup.style.display = 'none';
+            }
+        });
+    });
+
+
+    // Chọn gói -> hiển thị màu làm nổi bật, thay đổi button từ chọn -> đã chọn
+    const packageCards = document.querySelectorAll('.package-card');
+
+    packageCards.forEach(card => {
+        const btn = card.querySelector('.btn-choose');
+        const header = card.querySelector('.package-header');
+
+        // Click vào nút chọn
+        btn.addEventListener('click', () => selectPackage(card, btn));
+
+        // Click vào header
+        header.addEventListener('click', () => selectPackage(card, btn));
+    });
+
+
+    // Thay đổi giá gói bảo hiểm dựa vào số người lớn tham gia
+    const typeRadios = document.querySelectorAll('input[name="don"]');
+    const adultInput = document.querySelector('#people-group input[type="number"]'); // input người lớn
+
+    // Lưu giá gốc từng gói (cá nhân)
+    const originalPrices = Array.from(packageCards).map(card => {
+        const priceText = card.querySelector('.price').textContent;
+        return parseInt(priceText.replace(/\D/g, ''), 10); // Lấy số VNĐ
+    });
+
+    // Hàm cập nhật giá
+    function updatePrices() {
+        const selectedType = document.querySelector('input[name="don"]:checked').value;
+        const adults = parseInt(adultInput.value) || 1;
+
+        packageCards.forEach((card, index) => {
+            let price = originalPrices[index];
+            if (selectedType === "Gia đình" || selectedType === "Nhóm") {
+                price = price * adults;
+            }
+            card.querySelector('.price').textContent = price.toLocaleString() + " VNĐ";
+        });
+    }
+
+    // Thay đổi loại hình đơn
+    typeRadios.forEach(radio => {
+        radio.addEventListener('change', updatePrices);
+    });
+
+    // Thay đổi số người lớn
+    adultInput.addEventListener('input', () => {
+        const selectedType = document.querySelector('input[name="don"]:checked').value;
+        if (selectedType === "Gia đình" || selectedType === "Nhóm") {
+            updatePrices();
+        }
+    });
+
+    // Khởi tạo giá lần đầu
+    updatePrices();
+
+
+    // Chọn gói rồi xử lí button
+    //     const step2NextBtn = document.getElementById('step2-next-button');
+
+    packageCards.forEach(card => {
+        const btn = card.querySelector('.btn-choose');
+        const header = card.querySelector('.package-header');
+
+        // Click vào nút chọn
+        btn.addEventListener('click', () => selectPackage(card, btn));
+
+        // Click vào header
+        header.addEventListener('click', () => selectPackage(card, btn));
+    });
+
+    // Hàm chọn gói
+    function selectPackage(selectedCard, selectedBtn) {
+        // Reset tất cả gói
+        packageCards.forEach(card => card.classList.remove('selected'));
+        packageCards.forEach(card => {
+            const btn = card.querySelector('.btn-choose');
+            btn.classList.remove('chosen');
+            btn.textContent = "Chọn";
+        });
+
+        // Chọn gói hiện tại
+        selectedCard.classList.add('selected');
+        selectedBtn.classList.add('chosen');
+        selectedBtn.textContent = "Đã chọn";
+
+        // Xóa thông báo lỗi khi đã chọn gói
+        const errorMsg = document.getElementById('choose-package-error');
+        errorMsg.textContent = "";
+    }
+
+
+    // Xử lý nút Sửa ở Step 4
+    const steps = {
+        1: document.getElementById("step1-information-travel"),
+        2: document.getElementById("step2-insurance-package"),
+        3: document.getElementById("step3-passenger-information"),
+        4: document.getElementById("step4-confirm-information")
+    };
+
+    const navs = {
+        1: document.getElementById("step1"),
+        2: document.getElementById("step2"),
+        3: document.getElementById("step3"),
+        4: document.getElementById("step4")
+    };
+
+    const editButtons = document.querySelectorAll("#step4-confirm-information .edit-button");
+
+    editButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const targetStep = btn.getAttribute("data-step"); // Lấy step muốn quay lại
+
+            // Ẩn step 4
+            steps[4].classList.add("hidden");
+
+            // Hiện step target
+            steps[targetStep].classList.remove("hidden");
+
+            // Cập nhật nav active
+            Object.keys(navs).forEach(k => navs[k].classList.remove("active"));
+            navs[targetStep].classList.add("active");
+
+            window.scrollTo(0, 0);
+        });
+    });
+
+
+    // Kiểm tra checkbox agree
+    const agreeCheckbox = document.querySelector('input[name="agree"]');
+    const paymentButton = document.getElementById("step5-next-button");
+
+    // Hàm cập nhật trạng thái nút
+    function updatePaymentButton() {
+        if (agreeCheckbox.checked) {
+            paymentButton.disabled = false;
+            paymentButton.classList.remove("btn-disabled");
+        } else {
+            paymentButton.disabled = true;
+            paymentButton.classList.add("btn-disabled");
+        }
+    }
+
+    // Lắng nghe sự kiện thay đổi checkbox
+    agreeCheckbox.addEventListener("change", updatePaymentButton);
+
+    // Cập nhật khi tải trang
+    updatePaymentButton();
+
+
+    // Xử lí nút thanh toán ở step 5
+    const payBtnStep5 = document.getElementById("step5-next-button");
+    const transferPopup = document.getElementById("transfer-popup"); // popup transfer
+    const soTienValue = document.getElementById("so-tien-value");
+    const noiDungValue = document.getElementById("noi-dung-value");
+
+    payBtnStep5.addEventListener("click", function (e) {
+        e.preventDefault(); // tránh submit form mặc định nếu có
+
+        // Tìm radio button đang được check
+        const selectedPayment = document.querySelector('input[name="payment"]:checked');
+
+        if (selectedPayment && selectedPayment.value === "transfer") {
+            // Lấy thông tin giá gói từ Step 4
+            const giaGoi = document.getElementById("gia-goi-value").textContent.trim();
+            soTienValue.textContent = giaGoi + " VNĐ";
+
+            // Lấy tên chủ hợp đồng và tổng số người đi
+            const tenChuHD = document.getElementById("ho-ten-chu-hd-value").textContent.trim();
+            const soNguoi = document.getElementById("so-nguoi-di-value").textContent.trim();
+
+            noiDungValue.textContent = ` ${tenChuHD} ${soNguoi} ${giaGoi}`;
+
+            // Hiện popup chuyển khoản
+            transferPopup.classList.remove("hidden");
+        } else {
+            alert("Vui lòng thực hiện thanh toán bằng chuyển khoản");
+        }
+    });
+
+
+    // Xử lí nút trong popup chuyển khoản
+    const btnChangeMethod = document.getElementById("btn-change-method");
+    const btnComplete = document.getElementById("btn-complete");
+
+    // Nút Đổi phương thức thanh toán -> quay về step 5
+    btnChangeMethod.addEventListener("click", function () {
+        transferPopup.classList.add("hidden"); // Ẩn popup
+        // Không cần thay đổi bước nav vì đã ở Step 5, chỉ ẩn popup.
+    });
+
+    // Nút Hoàn tất -> chuyển sang trang complete-payment
+    btnComplete.addEventListener("click", function () {
+        // Chuyển hướng người dùng đến trang thông báo hoàn tất thanh toán
+        window.location.href = "Complete-payment.html";
+    });
 });
 
 // Kiểm tra step 1
-function checkStep1(){
+function checkStep1() {
     const startDate = document.getElementById("start-date");
     const endDate = document.getElementById("end-date");
     const startDateError = document.getElementById("start-date-error");
@@ -123,7 +407,7 @@ function checkStep1(){
 }
 
 // Kiểm tra step 2
-function checkStep2(){
+function checkStep2() {
     const selectedPackage = document.querySelector('.package-card.selected');
     const errorMsg = document.getElementById('choose-package-error');
 
@@ -138,7 +422,7 @@ function checkStep2(){
 }
 
 // Kiểm tra step 3
-function checkStep3(){
+function checkStep3() {
     let isValid = true;
 
     // Lấy các input của chủ hợp đồng
@@ -315,262 +599,54 @@ function updateStep4Info() {
     });
 }
 
-// Hiện popup để chỉnh sửa thông tin khách hàng và lưu vào bảng
-document.addEventListener("DOMContentLoaded", function () {
-    const popup = document.getElementById("popup");
-    const tbody = document.getElementById("beneficiary-tbody");
-    const popupCloseBtn = document.getElementById("popup-close-btn");
-    const popupSaveBtn = document.getElementById("popup-save-button");
+// Làm mới tất cả dữ liệu
+function resetAllData() {
+    // --- RESET STEP 1: Thông tin chuyến đi ---
+    document.getElementById("step1-information-travel").reset();
 
-    let currentEditRow = null;
+    // Đặt lại radio button đầu tiên
+    document.querySelector('input[name="diemden"]').checked = true;
+    document.querySelector('input[name="don"]').checked = true;
 
-    // Khi nhấn vào ô có class "cell-edit" thì hiện popup
-    tbody.addEventListener("click", function (e) {
-        const target = e.target.closest(".cell-edit");
-        if (!target) return;
+    // Ẩn nhóm Số người đi
+    document.getElementById('people-group').style.display = 'none';
 
-        currentEditRow = target.closest("tr");
-
-        // Lấy dữ liệu hiện tại từ bảng
-        const cells = currentEditRow.children;
-        document.getElementById("popup-ho-ten").value = cells[1].textContent;
-        document.getElementById("popup-ngay-sinh").value = cells[2].textContent;
-        document.getElementById("popup-gioi-tinh").value = cells[5].textContent;
-        document.getElementById("popup-quoc-tich").value = cells[6].textContent;
-        document.getElementById("popup-cmt").value = cells[4].textContent;
-        document.getElementById("popup-quan-he").value = cells[7].textContent;
-
-        // Hiện popup
-        popup.classList.remove("hidden");
-    });
-
-    // Khi nhấn nút Lưu
-    popupSaveBtn.addEventListener("click", function () {
-        if (!currentEditRow) return;
-
-        const hoTen = document.getElementById("popup-ho-ten").value;
-        const ngaySinh = document.getElementById("popup-ngay-sinh").value;
-        const cmt = document.getElementById("popup-cmt").value;
-        const gioiTinh = document.getElementById("popup-gioi-tinh").value;
-        const quocTich = document.getElementById("popup-quoc-tich").value;
-        const quanHe = document.getElementById("popup-quan-he").value;
-
-        const birthDate = new Date(ngaySinh);
-        const today = new Date();
-        let tuoi = today.getFullYear() - birthDate.getFullYear();
-        const m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-            tuoi--;
-        }
-
-        const cells = currentEditRow.children;
-        cells[1].textContent = hoTen;
-        cells[2].textContent = ngaySinh;
-        cells[3].textContent = tuoi;
-        cells[4].textContent = cmt;
-        cells[5].textContent = gioiTinh;
-        cells[6].textContent = quocTich;
-        cells[7].textContent = quanHe;
-
-        popup.classList.add("hidden");
-    });
-
-    // Khi nhấn nút đóng (X)
-    popupCloseBtn.addEventListener("click", function () {
-        popup.classList.add("hidden");
-    });
-
-});
-
-// Cá nhân -> ẩn số người đi, Gia đình/Nhóm -> hiện số người đi để chọn
-document.addEventListener('DOMContentLoaded', () => {
-    // Lấy tất cả radio "Loại hình đơn"
-    const donRadios = document.querySelectorAll('input[name="don"]');
-    const peopleGroup = document.getElementById('people-group');
-
-    // Bắt sự kiện khi thay đổi lựa chọn
-    donRadios.forEach(radio => {
-        radio.addEventListener('change', () => {
-            if (radio.value === "Gia đình" || radio.value === "Nhóm") {
-                peopleGroup.style.display = 'block';
-            } else {
-                peopleGroup.style.display = 'none';
-            }
-        });
-    });
-})
-
-// Chọn gói -> hiển thị màu làm nổi bật, thay đổi button từ chọn -> đã chọn
-document.addEventListener('DOMContentLoaded', () => {
-    const packageCards = document.querySelectorAll('.package-card');
-
-    packageCards.forEach(card => {
-        const btn = card.querySelector('.btn-choose');
-        const header = card.querySelector('.package-header');
-
-        // Click vào nút chọn
-        btn.addEventListener('click', () => selectPackage(card, btn));
-
-        // Click vào header
-        header.addEventListener('click', () => selectPackage(card, btn));
-    });
-
-    function selectPackage(selectedCard, selectedBtn) {
-        // Reset tất cả gói
-        packageCards.forEach(card => card.classList.remove('selected'));
-        packageCards.forEach(card => {
-            const btn = card.querySelector('.btn-choose');
-            btn.classList.remove('chosen');
-            btn.textContent = "Chọn";
-        });
-
-        // Chọn gói hiện tại
-        selectedCard.classList.add('selected');
-        selectedBtn.classList.add('chosen');
-        selectedBtn.textContent = "Đã chọn";
-    }
-})
-
-// Thay đổi giá gói bảo hiểm dựa vào số người lớn tham gia
-document.addEventListener("DOMContentLoaded", () => {
-    const typeRadios = document.querySelectorAll('input[name="don"]');
-    const adultInput = document.querySelector('#people-group input[type="number"]'); // input người lớn
-    const packageCards = document.querySelectorAll('.package-card');
-
-    // Lưu giá gốc từng gói (cá nhân)
-    const originalPrices = Array.from(packageCards).map(card => {
-        const priceText = card.querySelector('.price').textContent;
-        return parseInt(priceText.replace(/\D/g, ''), 10); // Lấy số VNĐ
-    });
-
-    // Hàm cập nhật giá
-    function updatePrices() {
-        const selectedType = document.querySelector('input[name="don"]:checked').value;
-        const adults = parseInt(adultInput.value) || 1;
-
-        packageCards.forEach((card, index) => {
-            let price = originalPrices[index];
-            if (selectedType === "Gia đình" || selectedType === "Nhóm") {
-                price = price * adults;
-            }
-            card.querySelector('.price').textContent = price.toLocaleString() + " VNĐ";
-        });
-    }
-
-    // Thay đổi loại hình đơn
-    typeRadios.forEach(radio => {
-        radio.addEventListener('change', updatePrices);
-    });
-
-    // Thay đổi số người lớn
-    adultInput.addEventListener('input', () => {
-        const selectedType = document.querySelector('input[name="don"]:checked').value;
-        if (selectedType === "Gia đình" || selectedType === "Nhóm") {
-            updatePrices();
-        }
-    });
-
-    // Khởi tạo giá lần đầu
+    // Cập nhật giá gói về giá gốc
     updatePrices();
-});
 
-// Chọn gói rồi xử lí button
-document.addEventListener('DOMContentLoaded', () => {
+    // --- RESET STEP 2: Gói bảo hiểm ---
     const packageCards = document.querySelectorAll('.package-card');
-    const step2NextBtn = document.getElementById('step2-next-button');
-
+    packageCards.forEach(card => card.classList.remove('selected'));
     packageCards.forEach(card => {
         const btn = card.querySelector('.btn-choose');
-        const header = card.querySelector('.package-header');
-
-        // Click vào nút chọn
-        btn.addEventListener('click', () => selectPackage(card, btn));
-
-        // Click vào header
-        header.addEventListener('click', () => selectPackage(card, btn));
+        btn.classList.remove('chosen');
+        btn.textContent = "Chọn";
     });
+    document.getElementById('choose-package-error').textContent = "";
 
-    // Hàm chọn gói
-    function selectPackage(selectedCard, selectedBtn) {
-        // Reset tất cả gói
-        packageCards.forEach(card => card.classList.remove('selected'));
-        packageCards.forEach(card => {
-            const btn = card.querySelector('.btn-choose');
-            btn.classList.remove('chosen');
-            btn.textContent = "Chọn";
-        });
+    // --- RESET STEP 3: Thông tin khách hàng ---
+    document.querySelector(".contract-form").reset();
+    document.getElementById("beneficiary-tbody").innerHTML = ""; // Xóa bảng người được bảo hiểm
 
-        // Chọn gói hiện tại
-        selectedCard.classList.add('selected');
-        selectedBtn.classList.add('chosen');
-        selectedBtn.textContent = "Đã chọn";
+    // Đặt lại hiển thị lỗi
+    const errorMessages = document.querySelectorAll('#step3-passenger-information .error-msg');
+    errorMessages.forEach(msg => msg.textContent = "");
 
-        // Xóa thông báo lỗi khi đã chọn gói
-        const errorMsg = document.getElementById('choose-package-error');
-        errorMsg.textContent = "";
-    }
-});
+    // --- Đặt lại bước hiển thị (Quay về Step 1) ---
+    document.getElementById("step2-insurance-package").classList.add("hidden");
+    document.getElementById("step3-passenger-information").classList.add("hidden");
+    document.getElementById("step4-confirm-information").classList.add("hidden");
+    document.getElementById("step5-payment").classList.add("hidden");
+    document.getElementById("step1-information-travel").classList.remove("hidden"); // Hiện Step 1
 
-// Xử lý nút Sửa ở Step 4
-document.addEventListener("DOMContentLoaded", () => {
-    const steps = {
-        1: document.getElementById("step1-information-travel"),
-        2: document.getElementById("step2-insurance-package"),
-        3: document.getElementById("step3-passenger-information"),
-        4: document.getElementById("step4-confirm-information")
-    };
+    document.getElementById("step1").classList.add("active");
+    document.getElementById("step2").classList.remove("active");
+    document.getElementById("step3").classList.remove("active");
+    document.getElementById("step4").classList.remove("active");
+    document.getElementById("step5").classList.remove("active");
 
-    const navs = {
-        1: document.getElementById("step1"),
-        2: document.getElementById("step2"),
-        3: document.getElementById("step3"),
-        4: document.getElementById("step4")
-    };
-
-    const editButtons = document.querySelectorAll("#step4-confirm-information .edit-button");
-
-    editButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            const targetStep = btn.getAttribute("data-step"); // Lấy step muốn quay lại
-
-            // Ẩn step 4
-            steps[4].classList.add("hidden");
-
-            // Hiện step target
-            steps[targetStep].classList.remove("hidden");
-
-            // Cập nhật nav active
-            Object.keys(navs).forEach(k => navs[k].classList.remove("active"));
-            navs[targetStep].classList.add("active");
-
-            window.scrollTo(0, 0);
-        });
-    });
-});
-
-// Kiểm tra checkbox agree
-document.addEventListener("DOMContentLoaded", function () {
-    const agreeCheckbox = document.querySelector('input[name="agree"]');
-    const paymentButton = document.getElementById("step5-next-button");
-
-    // Hàm cập nhật trạng thái nút
-    function updatePaymentButton() {
-        if (agreeCheckbox.checked) {
-            paymentButton.disabled = false;
-            paymentButton.classList.remove("btn-disabled");
-        } else {
-            paymentButton.disabled = true;
-            paymentButton.classList.add("btn-disabled");
-        }
-    }
-
-    // Cập nhật khi tải trang
-    updatePaymentButton();
-
-    // Lắng nghe sự kiện thay đổi checkbox
-    agreeCheckbox.addEventListener("change", updatePaymentButton);
-});
-
+    window.scrollTo(0, 0);
+}
 
 
 
