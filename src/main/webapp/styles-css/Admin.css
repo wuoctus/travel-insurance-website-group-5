@@ -7,12 +7,12 @@ body {
 
 /* HEADER */
 header {
-    background-color: #0b2447;
-    color: white;
+    background-color: #F2F2F2;
+    color: #0b2447;
     padding: 20px;
     padding-bottom: 10px;
     text-align: center;
-    height: auto;
+    height: 80px;
     display: flex;
     justify-content: space-between;
 }
@@ -20,15 +20,38 @@ header {
 /* Tiêu đề h1 */
 h1 {
     margin-bottom: 0;
+    color: #0C1494;
 }
 
 /* Logo */
 .logo {
-    width: 100px;
-    height: 100px;
-    padding-left: 36px;
+    width: 79px;
+    height: 79px;
+    padding-left: 0;
 }
+.logo-text{
+    display: -webkit-inline-box;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.1;
+}
+.logo-text-wrapper{
+    color: #0C1494;
+    align-items: first baseline;
+    font-size: 12px;
+    text-align: left;
+    padding-left: 7px;
+    margin-top: -10px   ;
 
+}
+.straight{
+    background-color: #0C1494;
+    height: 70px;
+    width: 2px;
+    border-radius: 30px;
+    margin-left: 11px;
+
+}
 /* Admin */
 .admin {
     position: relative;
@@ -38,9 +61,15 @@ h1 {
     justify-content: flex-end;
     margin-bottom: 10px;
 }
-
+.square{
+    background-color: #0C1494;
+    padding: 1px;
+    width: auto;
+    height: 2px;
+}
 .admin label {
     padding-bottom: 4px;
+    color: #0C1494;
 }
 
 .admin img {
@@ -55,7 +84,7 @@ h1 {
     background: #FFFFFF;
     height: auto;
     position: fixed;    
-    top: 130px;
+    top: 114px;
     left: 0;
     padding-top: 1px;
 }
@@ -103,7 +132,12 @@ h1 {
 #customers:target {
     display: block;
 }
-
+#config-form:target{
+    display:block   
+}
+#contacts:target {
+    display: block;
+}
 /* Hiển thị section mặc định nếu không có target nào */
 body:not(:has(:target)) #price {
     display: block;
@@ -128,4 +162,109 @@ th {
 
 td {
     padding: 8px;
+}
+th:first-child, td:first-child {
+    text-align: center;
+}
+/* cấu hình user */
+/* --- 3. Form Cấu hình User --- */
+.config-form {
+    background-color: rgb(111, 33, 33);
+    padding: 10px 0;
+    border: 1px solid #ccc;    
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    /* Dùng cho label Quyền hạn */
+    flex-wrap: wrap; 
+}
+
+.form-row label {
+    width: 150px; /* Chiều rộng cố định cho label */
+    font-weight: bold;
+    color: #555;
+    flex-shrink: 0;
+}
+
+.input-field,
+select.input-field {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    max-width: 350px; /* Giới hạn chiều rộng cho trường nhập */
+}
+
+.checkbox-field {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* --- 4. Quyền hạn (Permissions Grid) --- */
+.full-width-label {
+    width: 100%; /* Đảm bảo Quyền hạn chiếm 1 hàng riêng */
+    margin-bottom: 10px;
+}
+
+.permissions-grid {
+    display: flex;
+    gap: 20px;
+    margin-left: 150px; /* Đẩy các cột quyền vào cùng hàng với các input */
+    width: 100%;
+}
+
+.perm-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.perm-col label {
+    width: auto; /* Loại bỏ chiều rộng cố định cho label trong grid */
+    font-weight: normal;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.perm-col input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* --- 5. Nút thao tác (Buttons) --- */
+.form-actions {
+    margin-top: 20px;
+    margin-left: 150px; /* Căn thẳng hàng với các input */
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: #2788e3; /* Màu xanh dương */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1a6ac2;
+}
+
+.btn-secondary {
+    background-color: #ccc; /* Màu xám */
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #bbb;
 }
