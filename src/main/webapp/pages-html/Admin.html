@@ -5,32 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Bảo Hiểm</title>
     <link rel="stylesheet" href="../styles-css/Admin.css">
-    
+
 </head>
-<div>
 
 <header>
     <div class="logo-text">
-         <img src="../image/travel-insurance.png" alt="" class="logo">
-    <div class="logo-text-wrapper">
-        <h1>Travel</h1>
-        <h1>Insurance</h1>
-        
+        <img src="../image/travel-insurance.png" alt="" class="logo">
+        <div class="logo-text-wrapper">
+            <h1>Travel</h1>
+            <h1>Insurance</h1>
+
+        </div>
+        <div class="straight"></div>
     </div>
-    <div class="straight"></div>
-    </div>
-   
+
     <h1>Quản Lý Bảo Hiểm</h1>
     <div class="admin">
         <label>Admin</label>
         <img src="../image/user-gear.png" alt="admin" width="40">
     </div>
-    
+
 </header>
 <div class="square"></div>
 <!-- SIDEBAR -->
 <div class="sidebar">
-    <a href="#price">🔧 Thay đổi giá</a>    
+    <a href="#price">🔧 Thay đổi giá</a>
     <a href="#customers">📋 Danh sách khách hàng</a>
     <a href="#contacts"> 📞 Danh sách liên hệ</a>
     <a href="#config-form">⚙️ Cấu hình user</a>
@@ -69,128 +68,131 @@
 
         <table>
             <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>Họ và tên</th>
-                    <th>SĐT</th>
-                    <th>Ngày sinh</th>
-                    <th>Địa chỉ</th>
-                    <th>Email</th>
-                    <th>Gói mua</th>
-                    <th>Ngày mua</th>
-                </tr>
+            <tr>
+                <th>STT</th>
+                <th>Họ và tên</th>
+                <th>SĐT</th>
+                <th>Ngày sinh</th>
+                <th>Địa chỉ</th>
+                <th>Email</th>
+                <th>Gói mua</th>
+                <th>Ngày mua</th>
+            </tr>
             </thead>
             <tbody>
-                <!-- DỮ LIỆU KHÁCH HÀNG Ở ĐÂY -->
-                <tr>
-        <td>1</td>
-        <td>Nguyễn Văn Bình</td>
-        <td>0912 345 678</td>
-        <td>15/05/1990</td>
-        <td>123 Lê Lợi, TP.HCM</td>
-        <td>binh.nv@example.com</td>
-        <td>Cơ bản</td>
-        <td>2025-10-25</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Trần Thị Hạnh</td>
-        <td>0987 654 321</td>
-        <td>28/11/1985</td>
-        <td>45 Nguyễn Trãi, Hà Nội</td>
-        <td>hanh.tt@example.com</td>
-        <td>Nâng cao</td>
-        <td>2025-11-15</td>
-    </tr>   
+            <!-- DỮ LIỆU KHÁCH HÀNG Ở ĐÂY -->
+            <tr>
+                <td>1</td>
+                <td>Nguyễn Văn Bình</td>
+                <td>0912 345 678</td>
+                <td>15/05/1990</td>
+                <td>123 Lê Lợi, TP.HCM</td>
+                <td>binh.nv@example.com</td>
+                <td>Cơ bản</td>
+                <td>2025-10-25</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Trần Thị Hạnh</td>
+                <td>0987 654 321</td>
+                <td>28/11/1985</td>
+                <td>45 Nguyễn Trãi, Hà Nội</td>
+                <td>hanh.tt@example.com</td>
+                <td>Nâng cao</td>
+                <td>2025-11-15</td>
+            </tr>
             </tbody>
         </table>
     </div>
     <!-- Section 3: cấu hình user -->
-         <div id="config-form" class="section">
-                
-                <div class="form-row">
-                    <label>Loại tài khoản:</label>
-                    <select class="input-field">
-                        <option>Quản trị viên</option>
-                        <option>Thành viên</option>
-                    </select>
-                </div>
-                <div class="form-row">
-                    <label>Tên tài khoản:</label>
-                    <input type="text" value="quantrivien" class="input-field">
-                </div>
-                <div class="form-row">
-                    <label>Họ tên:</label>
-                    <input type="text" value="quantrivien" class="input-field">
-                </div>
-                <div class="form-row">
-                    <label>Mật khẩu:</label>
-                    <input type="password" value="********" class="input-field">
-                </div>
-                <div class="form-row">
-                    <label>Nhập lại mật khẩu:</label>
-                    <input type="password" value="********" class="input-field">
-                </div>
-                <div class="form-row">
-                    <label>Hiển thị:</label>
-                    <input type="checkbox" checked class="checkbox-field">
-                </div>
-                
-                <div class="form-row">
-                    <label class="full-width-label">Quyền hạn:</label>
-                    <div class="permissions-grid">
-                        
-                        <div class="perm-col">
-                            <label><input type="checkbox"> Sản phẩm</label>
-                            <label><input type="checkbox"> Danh sách điện thoại</label>
-                        </div>
-                        
-                        <div class="perm-col">
-                            
-                            <label><input type="checkbox"> Hình ảnh</label>
-                            <label><input type="checkbox"> Hỗ trợ trực tuyến</label>
-                        </div>
-                        
-                        <div class="perm-col">
-                            <label><input type="checkbox"> Danh sách đơn hàng</label>
-                            <label><input type="checkbox"> Khách hàng Liên hệ</label>
-                            
-                        </div>
+    <div id="config-form" class="section">
 
-                    </div>
+        <div class="form-row">
+            <label>Loại tài khoản:</label>
+            <select class="input-field">
+                <option>Quản trị viên</option>
+                <option>Thành viên</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <label>Tên tài khoản:</label>
+            <input type="text" value="quantrivien" class="input-field">
+        </div>
+        <div class="form-row">
+            <label>Họ tên:</label>
+            <input type="text" value="quantrivien" class="input-field">
+        </div>
+        <div class="form-row">
+            <label>Mật khẩu:</label>
+            <input type="password" value="********" class="input-field">
+        </div>
+        <div class="form-row">
+            <label>Nhập lại mật khẩu:</label>
+            <input type="password" value="********" class="input-field">
+        </div>
+        <div class="form-row">
+            <label>Hiển thị:</label>
+            <input type="checkbox" checked class="checkbox-field">
+        </div>
+
+        <div class="form-row">
+            <label class="full-width-label">Quyền hạn:</label>
+            <div class="permissions-grid">
+
+                <div class="perm-col">
+                    <label><input type="checkbox"> Sản phẩm</label>
+                    <label><input type="checkbox"> Danh sách điện thoại</label>
                 </div>
 
-                <div class="form-actions">
-                    <button class="btn btn-primary">Lưu</button>
-                    <button class="btn btn-secondary">Thoát</button>
+                <div class="perm-col">
+
+                    <label><input type="checkbox"> Hình ảnh</label>
+                    <label><input type="checkbox"> Hỗ trợ trực tuyến</label>
                 </div>
+
+                <div class="perm-col">
+                    <label><input type="checkbox"> Danh sách đơn hàng</label>
+                    <label><input type="checkbox"> Khách hàng Liên hệ</label>
+
+                </div>
+
             </div>
-            <!-- danh sách liên hệ -->
-             <div id="contacts" class="section">
+        </div>
+
+        <div class="form-actions">
+            <button class="btn btn-primary">Lưu</button>
+            <button class="btn btn-secondary">Thoát</button>
+        </div>
+    </div>
+    <!-- danh sách liên hệ -->
+    <div id="contacts" class="section">
         <h2>Danh sách Khách hàng Liên hệ</h2>
 
         <table>
             <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>Họ và tên</th>
-                    <th>Email</th>
-                    <th>SĐT</th>
-                </tr>
+            <tr>
+                <th>STT</th>
+                <th>Họ và tên</th>
+                <th>Email</th>
+                <th>SĐT</th>
+                <th>Nội dung</th>
+            </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>a.nguyen@example.com</td>
-                    <td>0901xxxxxx</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Trần Thị B</td>
-                    <td>b.tran@example.com</td>
-                    <td>0988yyyyyy</td>
-                </tr>
+            <tr>
+                <td>1</td>
+                <td>Nguyễn Văn A</td>
+                <td>a.nguyen@example.com</td>
+                <td>0901xxxxxx</td>
+                <td>Nội dung yêu cầu</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Trần Thị B</td>
+                <td>b.tran@example.com</td>
+                <td>0988yyyyyy</td>
+                <td>Nội dung yêu cầu</td>
+            </tr>
             </tbody>
         </table>
     </div>

@@ -89,66 +89,6 @@ body {
     background: #f2f2f2;
 }
 
-/* --- Thanh tiến trình (Progress Steps) --- */
-.progress-steps {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 50px;
-    padding: 50px 0 20px 0;
-    max-width: 900px; /* Giới hạn chiều rộng thanh bước */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.step {
-    text-align: center;
-    position: relative;
-    width: 20%; /* Chia đều cho 5 bước */
-    color: #0d47a1; /* Màu chữ bước hoàn thành */
-    font-weight: 600;
-}
-
-/* Icon (Dấu check) */
-.step-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #0d47a1; /* Màu xanh đậm (đã hoàn thành) */
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 10px;
-    font-size: 18px;
-    line-height: 1;
-    z-index: 2;
-    position: relative;
-}
-
-.step-text {
-    font-size: 14px;
-    margin-top: 5px;
-}
-
-/* Đường nối giữa các bước */
-.step:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    top: 15px; /* Căn giữa theo chiều dọc của icon */
-    left: 50%;
-    width: calc(100% - 20px);
-    height: 2px;
-    background-color: #0d47a1;
-    z-index: 1;
-}
-
-/* Điều chỉnh đường nối để không đè lên icon của bước tiếp theo */
-.step:not(:last-child) {
-    /* Đẩy chữ sang trái 1 chút để đường nối chiếm hết khoảng trống */
-    padding-right: 0;
-}
-
 /* --- Nội dung thành công --- */
 .success-content {
     text-align: center;
