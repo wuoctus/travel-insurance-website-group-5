@@ -47,7 +47,7 @@
     </form>
 
     <!-- Form quên mật khẩu -->
-    <form id="forgotForm" class="form">
+    <form id="forgotForm" class="form" action="" method="post">
         <h2>QUÊN MẬT KHẨU</h2>
 
         <!-- Radio điều khiển từng bước -->
@@ -55,25 +55,25 @@
         <input type="radio" name="step" id="step2" hidden>
         <input type="radio" name="step" id="step3" hidden>
 
-        <!-- Bước 1: Nhập email/SĐT -->
+        <!-- Bước 1 -->
         <div class="step-box step1">
-            <p>Nhập thông tin để khôi phục mật khẩu:</p>
-            <input type="text" placeholder="Nhập email hoặc SĐT" required>
-            <label for="step2">
-                <button type="button" onclick="document.getElementById('step2').checked = true;">
-                    Tiếp tục
-                </button>
+            <p>Nhập email để khôi phục mật khẩu:</p>
+            <input type="email" placeholder="Nhập email của bạn" required>
+
+            <!-- NHẤN → chuyển step2 -->
+            <label for="step2" class="full-btn">
+                Gửi mã xác nhận
             </label>
         </div>
 
         <!-- Bước 2: Nhập mã xác nhận -->
         <div class="step-box step2">
-            <p>Nhập mã xác nhận đã được gửi đến bạn:</p>
-            <input type="text" placeholder="Nhập mã xác nhận" required>
-            <label for="step3">
-                <button type="button" onclick="document.getElementById('step3').checked = true;">
-                    Xác nhận mã
-                </button>
+            <p>Nhập mã xác nhận 6 số:</p>
+
+            <input type="text" maxlength="6" placeholder="XXXXXX" required style="text-align:center; letter-spacing:5px; font-size:22px; font-weight:bold;">
+
+            <label for="step3" class="full-btn">
+                Xác nhận mã
             </label>
         </div>
 
@@ -82,13 +82,24 @@
             <p>Đặt lại mật khẩu mới:</p>
             <input type="password" placeholder="Mật khẩu mới" required>
             <input type="password" placeholder="Nhập lại mật khẩu" required>
-            <button type="submit">Đặt lại mật khẩu</button>
+
+            <!-- Submit form → reload trang → tự reset về bước 1 -->
+            <label for="showLogin" class="full-btn" onclick="document.getElementById('step1').checked = true;">
+                Đặt lại mật khẩu
+            </label>
+
+
         </div>
 
         <div class="options">
-            <label for="showLogin" class="link-style" onclick="document.getElementById('step1').checked = true;">Quay lại đăng nhập</label>
+            <!-- Quay lại đăng nhập, đồng thời reset step1 -->
+            <label for="showLogin" class="link-style"
+                   onclick="document.getElementById('step1').checked = true;">
+                Quay lại đăng nhập
+            </label>
         </div>
     </form>
+
 
 </div>
 
