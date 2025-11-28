@@ -28,12 +28,20 @@
 </header>
 <div class="square"></div>
 <!-- SIDEBAR -->
-<div class="sidebar">
-    <a href="#price">🔧 Thay đổi giá</a>
-    <a href="#customers">📋 Danh sách khách hàng</a>
-    <a href="#contacts"> 📞 Danh sách liên hệ</a>
-    <a href="#config-form">⚙️ Cấu hình user</a>
-</div>
+<ul class="sidebar">
+    <li><a href="#customers">📋 Danh sách khách hàng</a></li>
+    <li id="h"><a href="#">📦 Quản lý Gói Bảo Hiểm</a>
+        <ul class="sub">
+            <li id="sub-add"><a href="#tab-add">Thêm Bảo Hiểm</a></li>
+            <li id="sub-delete"><a href="#tab-delete">Xóa Bảo Hiểm</a></li>
+        </ul>
+    </li>
+    <li><a href="#contacts"> 📞 Danh sách liên hệ</a></li> 
+    <li><a href="#price">🔧 Thay đổi giá</a></li>
+    <li><a href="#config-form">⚙️ Cấu hình user</a></li>
+    <li><a href="../pages-html/Login.html">↩️ Thoát</a></li>
+
+</ul>
 
 <!-- NỘI DUNG -->
 <div class="content">
@@ -110,17 +118,17 @@
         <div class="form-row">
             <label>Loại tài khoản:</label>
             <select class="input-field">
-                <option>Quản trị viên</option>
-                <option>Thành viên</option>
+                <option>Admin</option>
+                <option>User</option>
             </select>
         </div>
         <div class="form-row">
             <label>Tên tài khoản:</label>
-            <input type="text" value="quantrivien" class="input-field">
+            <input type="text" value="User" class="input-field">
         </div>
         <div class="form-row">
             <label>Họ tên:</label>
-            <input type="text" value="quantrivien" class="input-field">
+            <input type="text" value="User" class="input-field">
         </div>
         <div class="form-row">
             <label>Mật khẩu:</label>
@@ -140,14 +148,14 @@
             <div class="permissions-grid">
 
                 <div class="perm-col">
-                    <label><input type="checkbox"> Sản phẩm</label>
+                    <label><input type="checkbox"> Quản lý sản phẩm</label>
                     <label><input type="checkbox"> Danh sách điện thoại</label>
                 </div>
 
                 <div class="perm-col">
 
-                    <label><input type="checkbox"> Hình ảnh</label>
-                    <label><input type="checkbox"> Hỗ trợ trực tuyến</label>
+                    <label><input type="checkbox"> Thay đổi giá</label>
+                    <label><input type="checkbox"> Cấu hình user</label>
                 </div>
 
                 <div class="perm-col">
@@ -196,7 +204,66 @@
             </tbody>
         </table>
     </div>
-
+    <!-- thêm sản phẩm -->
+        
+        <div id="tab-add" class="section">
+            <h3>Nhập thông tin gói mới</h3>
+            <form action="/addProduct" method="POST" class="add-product-form">
+                <div class="form-row-compact">
+                    <label for="new_type">Loại Bảo hiểm:</label>
+                    <select id="new_type" name="loaiBaoHiem">
+                        <option value="1">Bảo hiểm Du lịch cá nhân</option>
+                        <option value="2">Bảo hiểm Du lịch gia đình</option>
+                    </select>
+                </div>
+                <div class="form-row-compact">
+                    <label for="new_package">Tên Gói:</label>
+                    <input type="text" id="new_package" name="tenGoi" required>
+                </div>
+                <div class="form-row-compact">
+                    <label for="new_price">Giá (VNĐ):</label>
+                    <input type="number" id="new_price" name="gia" step="1000" min="0" required>
+                </div>
+                <div class="form-row-compact">
+                    <label for="new_desc">Mô tả ngắn:</label>
+                    <textarea id="new_desc" name="moTa"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary add-product-btn">Thêm Gói</button>
+            </form>
+        </div>
+        <!-- xóa sản phẩm -->
+        <div id="tab-delete" class="section">
+            <h3>Chọn gói cần xóa</h3>
+            <div class="management-table">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Mã Gói</th>
+                        <th>Loại Bảo Hiểm</th>
+                        <th>Tên Gói</th>
+                        <th>Giá (VNĐ)</th>
+                        <th>Thao tác</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1-1</td>
+                        <td>Du lịch cá nhân</td>
+                        <td>Cơ bản</td>
+                        <td>500,000</td>
+                        <td><button class="btn btn-delete" data-id="1-1">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>2-2</td>
+                        <td>Du lịch gia đình</td>
+                        <td>Nâng cao</td>
+                        <td>1,500,000</td>
+                        <td><button class="btn btn-delete" data-id="2-2">Xóa</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 </div>
 </body>
 </html>

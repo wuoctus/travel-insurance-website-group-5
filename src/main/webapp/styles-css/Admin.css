@@ -80,13 +80,15 @@ h1 {
 
 /* SIDEBAR */
 .sidebar {
+    list-style: none;
     width: 220px;
     background: #FFFFFF;
     height: auto;
     position: fixed;    
-    top: 114px;
-    left: 0;
+    top: 102px;
+    padding-left: 0;
     padding-top: 1px;
+    border-radius: 6px;
 }
 
 .sidebar a {
@@ -138,11 +140,58 @@ h1 {
 #contacts:target {
     display: block;
 }
-/* Hiển thị section mặc định nếu không có target nào */
-body:not(:has(:target)) #price {
+#tab-add:target{
     display: block;
 }
+#tab-delete:target{
+    display: block;
+}
+.content:not(:has(:target)) #customers {
+    display: block;
+}
+/* phần thay đổi giá */ 
+#price{
+    width: fit-content;
+}
+#price form {
+    background: #FFFFFF;
+    padding: 30px;
+    border: 1px solid #d0d0d0;
+    border-radius: 10px;
+    width: 450px; /* Chiều rộng cố định cho form */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ */
+}
 
+#price form label {
+    display: block; /* Đảm bảo label chiếm trọn hàng */
+    font-weight: bold;
+    color: #0C1494; /* Màu chữ đậm tương phản */
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+/* Kiểu dáng cho Input và Select */
+#price select,
+#price input[type="number"] {
+    width: 100%; 
+    padding: 12px 15px; /* Padding lớn hơn */
+    border: 2px solid #ccc;
+    border-radius: 5px; 
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Hiệu ứng Focus */
+#price select:focus,
+#price input[type="number"]:focus {
+    border-color: #6177FE; /* Màu xanh nổi bật */
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(97, 119, 254, 0.2);
+}
 /* TABLE */
 table {
     width: 100%;
@@ -155,7 +204,7 @@ table, th, td {
 }
 
 th {
-    background: #0b2447;
+    background: #0F19A9;
     color: white;
     padding: 10px;
 }
@@ -166,36 +215,25 @@ td {
 th:first-child, td:first-child {
     text-align: center;
 }
-/* cấu hình user */
-/* --- 3. Form Cấu hình User --- */
-.config-form {
-    background-color: rgb(111, 33, 33);
-    padding: 10px 0;
-    border: 1px solid #ccc;    
-}
-
-.form-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    /* Dùng cho label Quyền hạn */
-    flex-wrap: wrap; 
-}
-
-.form-row label {
-    width: 150px; /* Chiều rộng cố định cho label */
-    font-weight: bold;
-    color: #555;
-    flex-shrink: 0;
-}
-
 .input-field,
 select.input-field {
     flex-grow: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    max-width: 350px; /* Giới hạn chiều rộng cho trường nhập */
+    max-width: 400px; 
+    padding: 10px 15px; 
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-field:focus,
+select.input-field:focus {
+    border-color: #6177FE; 
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(97, 119, 254, 0.2);
 }
 
 .checkbox-field {
@@ -206,15 +244,16 @@ select.input-field {
 
 /* --- 4. Quyền hạn (Permissions Grid) --- */
 .full-width-label {
-    width: 100%; /* Đảm bảo Quyền hạn chiếm 1 hàng riêng */
-    margin-bottom: 10px;
+    width: 100%; 
+    margin-bottom: 15px;
 }
 
 .permissions-grid {
     display: flex;
-    gap: 20px;
-    margin-left: 150px; /* Đẩy các cột quyền vào cùng hàng với các input */
+    gap: 40px; /* Tăng khoảng cách giữa các cột */
+    margin-left: 180px; /* Đẩy vào để căn thẳng hàng với input */
     width: 100%;
+    margin-top: 10px;
 }
 
 .perm-col {
@@ -223,9 +262,10 @@ select.input-field {
 }
 
 .perm-col label {
-    width: auto; /* Loại bỏ chiều rộng cố định cho label trong grid */
+    width: auto; 
     font-weight: normal;
-    margin-bottom: 5px;
+    color: #333; /* Giữ màu chữ tiêu chuẩn */
+    margin-bottom: 8px;
     cursor: pointer;
 }
 
@@ -233,6 +273,13 @@ select.input-field {
     margin-right: 5px;
 }
 
+/* --- 5. Nút thao tác (Buttons) --- */
+.form-actions {
+    margin-top: 30px;
+    margin-left: 180px; /* Căn thẳng hàng với input */
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
 /* --- 5. Nút thao tác (Buttons) --- */
 .form-actions {
     margin-top: 20px;
@@ -268,4 +315,237 @@ select.input-field {
 .btn-secondary:hover {
     background-color: #bbb;
 }
+/* quản lí sản phẩm */
+.sidebar li {
+    list-style: none; 
+    position: relative; /* Quan trọng cho dropdown */
+}
 
+/* Kiểu dáng cho phần tử cha chứa sub-menu (Quản lý Gói Bảo Hiểm) */
+#h {
+    cursor: pointer;
+}
+
+/* ẨN MẶC ĐỊNH MENU CON */
+.sidebar .sub {
+    display: none;
+    list-style: none; 
+    padding-left: 0;
+    margin: 0; 
+    background: #f8f8f8; /* Nền khác biệt cho sub-menu */
+    border-left: 4px solid #0C1494; /* Đường kẻ phân biệt */
+}
+
+/* HIỆN MENU CON KHI RÊ CHUỘT (HOVER) */
+#h:hover > .sub {
+    display: block;
+}
+
+/* Kiểu dáng cho các mục con trong sub-menu */
+.sidebar .sub li a {
+    padding: 8px 15px 8px 30px; /* Thụt vào để tạo cấp bậc */
+    color: #555;
+    font-size: 14px;
+    border-radius: 0;
+}
+
+.sidebar .sub li a:hover {
+    background: #e0e6ff; /* Màu hover nhẹ hơn */
+    color: #0C1494;
+}
+body:has(#tab-add:target) #sub-add a {
+    background: #e0e6ff; 
+    color: #0C1494;
+    font-weight: bold;
+}
+
+/* Trạng thái Active cho mục Xóa Bảo Hiểm trong Sidebar */
+/* Khi #tab-delete đang là target, áp dụng style cho #sub-delete a */
+body:has(#tab-delete:target) #sub-delete a {
+    background: #e0e6ff;
+    color: #0C1494;
+    font-weight: bold;
+}
+/* CSS CẤU HÌNH USER */
+#config-form {
+    max-width: 850px; 
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px; /* TĂNG KHOẢNG CÁCH */
+    flex-wrap: wrap; 
+    padding-right: 20px;
+}
+
+.form-row label {
+    width: 180px; /* Chiều rộng cố định mới */
+    font-weight: bold;
+    color: #0C1494; /* Màu chữ đậm, chuyên nghiệp */
+    flex-shrink: 0;
+}
+
+.input-field,
+select.input-field {
+    flex-grow: 1;
+    max-width: 400px; 
+    
+    /* KIỂU DÁNG MỚI */
+    padding: 10px 15px; 
+    border: 2px solid #ccc; 
+    border-radius: 5px; 
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Hiệu ứng focus (Đồng bộ) */
+.input-field:focus,
+select.input-field:focus {
+    border-color: #6177FE; 
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(97, 119, 254, 0.2);
+}
+
+.checkbox-field {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* --- 4. Quyền hạn (Permissions Grid) --- */
+.full-width-label {
+    width: 100%; 
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #0C1494; 
+    padding-bottom: 5px;
+}
+
+.permissions-grid {
+    display: flex;
+    gap: 40px; 
+    margin-left: 180px; /* Căn thẳng hàng với input */
+    width: 100%;
+    margin-top: 10px;
+    flex-wrap: wrap; 
+}
+
+.perm-col {
+    display: flex;
+    flex-direction: column;
+    width: 180px; 
+}
+
+.perm-col label {
+    width: auto; 
+    font-weight: normal;
+    color: #333; 
+    margin-bottom: 10px; 
+    cursor: pointer;
+}
+
+.perm-col input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* --- 5. Nút thao tác (Buttons) --- */
+.form-actions {
+    margin-top: 40px;
+    margin-left: 180px; /* Căn thẳng hàng với input */
+    padding-top: 20px;
+    border-top: 1px solid #ccc; 
+}
+/* XÓA GÓI */
+.management-table td:last-child {
+    /* Đảm bảo ô cuối cùng của bảng (chứa nút Xóa) được căn giữa */
+    text-align: center;
+}
+
+/* --- Đảm bảo nút Xóa có kiểu dáng --- */
+.btn-delete {
+    background-color: #d9534f; /* Màu đỏ */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn-delete:hover {
+    background-color: #c9302c;
+}
+/* THÊM SẢN PHẨM */
+#tab-add {
+    /* Đảm bảo Section này chỉ rộng bằng nội dung bên trong */
+    width: fit-content;
+}
+
+#tab-add h3 {
+    color: #000000;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Container Form chính (Bố cục 2 cột) */
+.add-product-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia thành 2 cột đều nhau */
+    gap: 25px 35px; /* Tăng khoảng cách giữa các trường */
+    max-width: 800px; /* Chiều rộng tối đa cho form 2 cột */
+    
+    /* Kiểu dáng box đồng bộ với #price */
+    padding: 30px;
+    border: 1px solid #d0d0d0;
+    border-radius: 10px;
+    background: #ffffff; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+}
+
+/* Kiểu dáng chung cho các hàng form */
+.form-row-compact {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row-compact label {
+    font-weight: bold;
+    color: #0C1494; /* Màu chữ đậm tương tự #price */
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+/* Áp dụng kiểu input/select/textarea giống #price */
+.form-row-compact input[type="text"],
+.form-row-compact input[type="number"],
+.form-row-compact select,
+.form-row-compact textarea {
+    width: 100%; 
+    padding: 12px 15px; /* Padding lớn hơn */
+    border: 2px solid #ccc; /* Border dày hơn */
+    border-radius: 5px; 
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Hiệu ứng focus tương tự #price */
+.form-row-compact input:focus,
+.form-row-compact select:focus,
+.form-row-compact textarea:focus {
+    border-color: #6177FE; /* Màu xanh nổi bật */
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(97, 119, 254, 0.2);
+}
+
+.form-row-compact textarea {
+    resize: vertical;
+    min-height: 100px; /* Chiều cao tối thiểu cho mô tả */
+}
