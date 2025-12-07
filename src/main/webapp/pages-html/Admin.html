@@ -265,5 +265,206 @@
             </div>
         </div>
 </div>
+<!-- them chuc nag -->
+ <!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản trị danh mục</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 230px;
+            height: 100vh;
+            background: #2c3e50;
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding-top: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            padding: 12px 20px;
+            cursor: pointer;
+        }
+
+        .sidebar li:hover {
+            background: #1a252f;
+        }
+
+        .sidebar li.active {
+            background: #1abc9c;
+        }
+
+        /* CONTENT */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .header-path {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .top-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .btn-add {
+            background: #0a74da;
+            padding: 8px 14px;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        /* TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        table th {
+            background: #eee;
+        }
+
+        .icon-edit {
+            color: #e67e22;
+            cursor: pointer;
+        }
+
+        .icon-delete {
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <ul>
+        <li class="active">Loại danh mục</li>
+        <li>Sản phẩm</li>
+        <li>Bài viết</li>
+        <li>Quản trị giao diện</li>
+        <li>Quản trị thông tin</li>
+        <li>SEO Website</li>
+        <li>Cấu hình User</li>
+    </ul>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content">
+
+    <div class="header-path">Trang chủ → Danh mục → Loại danh mục</div>
+
+    <div class="top-actions">
+        <div>
+            <select>
+                <option>Tác vụ</option>
+            </select>
+            <input type="text" placeholder="Tìm kiếm...">
+            <select>
+                <option>Số hiển thị</option>
+            </select>
+        </div>
+
+        <a href="#" class="btn-add">+ Thêm mới</a>
+    </div>
+
+    <!-- TABLE -->
+    <table>
+        <thead>
+        <tr>
+            <th></th>
+            <th>STT</th>
+            <th>Danh mục</th>
+            <th>Hình ảnh</th>
+            <th>Module</th>
+            <th>Trang chủ</th>
+            <th>Danh mục</th>
+            <th>Hiển thị</th>
+            <th>Tác vụ</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>1</td>
+            <td>Giới thiệu</td>
+            <td>(ảnh)</td>
+            <td>Bài viết</td>
+            <td><input type="checkbox" checked></td>
+            <td><input type="checkbox"></td>
+            <td><input type="checkbox" checked></td>
+            <td>
+                <span class="icon-edit">✏️</span>
+                <span class="icon-delete">❌</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>2</td>
+            <td>Sản phẩm</td>
+            <td>(ảnh)</td>
+            <td>Sản phẩm</td>
+            <td><input type="checkbox"></td>
+            <td><input type="checkbox" checked></td>
+            <td><input type="checkbox" checked></td>
+            <td>
+                <span class="icon-edit">✏️</span>
+                <span class="icon-delete">❌</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>11</td>
+            <td>Hoa sinh nhật</td>
+            <td>(ảnh)</td>
+            <td>Sản phẩm</td>
+            <td><input type="checkbox"></td>
+            <td><input type="checkbox"></td>
+            <td><input type="checkbox" checked></td>
+            <td>
+                <span class="icon-edit">✏️</span>
+                <span class="icon-delete">❌</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
+
 </body>
 </html>
